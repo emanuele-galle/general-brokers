@@ -9,6 +9,7 @@ services:
       - NODE_ENV=production
       - PORT=3000
     networks:
+      - traefik-public
       - panel-internal
     labels:
       - "traefik.enable=true"
@@ -16,7 +17,10 @@ services:
       - "traefik.http.routers.general-brokers.entrypoints=websecure"
       - "traefik.http.routers.general-brokers.tls.certresolver=letsencrypt"
       - "traefik.http.services.general-brokers.loadbalancer.server.port=3000"
+      - "traefik.docker.network=traefik-public"
 
 networks:
+  traefik-public:
+    external: true
   panel-internal:
     external: true
