@@ -1,0 +1,58 @@
+name: Deploy to VPS
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy General Brokers
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            set -e
+            echo "🚀 Starting deployment for General Brokers..."
+
+            # Navigate to project directory
+            cd /var/www/projects/general-brokers
+
+            # Pull latest changes
+            echo "📥 Pulling latest changes..."
+            git pull origin main
+
+            # Install dependencies
+            echo "📦 Installing dependencies..."
+            npm ci --production=false
+
+            # Build and restart container
+            echo "🐳 Rebuilding Docker container..."
+            docker compose build --no-cache
+            docker compose down
+            docker compose up -d
+
+            # Verify container is running
+            echo "✅ Verifying deployment..."
+            docker compose ps
+
+            echo "✨ Deployment completed successfully!"
+
+      - name: Notify N8N
+        if: always()
+        run: |
+          curl -X POST https://n8n.fodivps2.cloud/webhook/github-deploy \
+            -H "Content-Type: application/json" \
+            -d '{
+              "project": "general-brokers",
+              "status": "${{ job.status }}",
+              "commit": "${{ github.sha }}",
+              "author": "${{ github.actor }}",
+              "message": "${{ github.event.head_commit.message }}"
+            }'

@@ -1,0 +1,21 @@
+<svg width="280" height="120" viewBox="0 0 280 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Sfondo rosso con angoli arrotondati -->
+  <rect width="280" height="120" rx="12" fill="#ED1C24"/>
+
+  <!-- Rettangolo bianco per il testo -->
+  <rect x="20" y="20" width="240" height="35" rx="2" fill="white"/>
+
+  <!-- Testo GENERAL BROKERS in nero -->
+  <text x="140" y="45" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="bold" fill="black" text-anchor="middle" letter-spacing="2">
+    GENERAL BROKERS
+  </text>
+
+  <!-- Triangolo bianco centrale -->
+  <path d="M 140 65 L 200 105 L 80 105 Z" fill="white"/>
+
+  <!-- Simbolo (R) nel triangolo -->
+  <circle cx="140" cy="88" r="10" fill="none" stroke="#666" stroke-width="1.5"/>
+  <text x="140" y="93" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#666" text-anchor="middle">
+    R
+  </text>
+</svg>

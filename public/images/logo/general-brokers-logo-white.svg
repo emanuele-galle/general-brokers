@@ -1,0 +1,32 @@
+<svg width="200" height="60" viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Sfondo rosso rettangolare con trasparenza -->
+  <rect width="70" height="60" rx="4" fill="white" fill-opacity="0.15"/>
+
+  <!-- Bordo bianco interno -->
+  <rect x="4" y="4" width="62" height="52" rx="3" fill="none" stroke="white" stroke-width="1.5"/>
+
+  <!-- Triangolo bianco centrale -->
+  <path d="M 35 16 L 48 44 L 22 44 Z" fill="white"/>
+
+  <!-- Testo GENERAL BROKERS -->
+  <text x="35" y="14" font-family="Arial, sans-serif" font-size="7" font-weight="bold" fill="white" text-anchor="middle" letter-spacing="0.8">
+    GENERAL BROKERS
+  </text>
+
+  <!-- Simbolo ® registrato -->
+  <circle cx="64" cy="54" r="4" fill="none" stroke="white" stroke-width="0.8"/>
+  <text x="64" y="56" font-family="Arial, sans-serif" font-size="6" font-weight="bold" fill="white" text-anchor="middle">
+    R
+  </text>
+
+  <!-- Testo General Brokers accanto -->
+  <text x="80" y="25" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">
+    General Brokers
+  </text>
+  <text x="80" y="42" font-family="Arial, sans-serif" font-size="11" font-style="italic" fill="white" fill-opacity="0.9">
+    l'assicurazione firmata
+  </text>
+  <text x="80" y="52" font-family="Arial, sans-serif" font-size="9" fill="white" fill-opacity="0.7">
+    dal 1977
+  </text>
+</svg>

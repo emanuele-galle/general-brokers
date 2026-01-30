@@ -1,0 +1,10 @@
+# robots.txt for General Brokers Srl
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.generalbrokers.it/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1

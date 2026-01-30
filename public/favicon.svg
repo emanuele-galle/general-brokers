@@ -1,0 +1,7 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Sfondo rosso -->
+  <rect width="32" height="32" rx="4" fill="#DC2626"/>
+
+  <!-- Triangolo bianco centrale -->
+  <path d="M 16 8 L 24 24 L 8 24 Z" fill="white"/>
+</svg>

@@ -1,0 +1,22 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: general-brokers
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+    networks:
+      - panel-internal
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.general-brokers.rule=Host(`general-brokers.fodivps2.cloud`)"
+      - "traefik.http.routers.general-brokers.entrypoints=websecure"
+      - "traefik.http.routers.general-brokers.tls.certresolver=letsencrypt"
+      - "traefik.http.services.general-brokers.loadbalancer.server.port=3000"
+
+networks:
+  panel-internal:
+    external: true
