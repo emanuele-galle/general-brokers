@@ -1,106 +1,13 @@
 import { useState } from 'react';
 import Layout from '@/components/Layout';
 import Image from 'next/image';
-import images from '@/utils/images';
 import ServiceModal from '@/components/ServiceModal';
-import ServiceCategories from '@/components/ServiceCategories';
 import CTASection from '@/components/CTASection';
 import { servicesData } from '@/data/servicesData';
-import {
-  FaFileContract,
-  FaShieldAlt,
-  FaChartLine,
-  FaBuilding,
-  FaUserShield,
-  FaHandshake,
-  FaArrowRight,
-  FaPhone
-} from 'react-icons/fa';
+import { FaArrowRight } from 'react-icons/fa';
 
 export default function Servizi() {
   const [selectedService, setSelectedService] = useState<number | null>(null);
-
-  // Old services data for reference (will be replaced)
-  const servicesOld = [
-    {
-      icon: FaFileContract,
-      title: 'Gestione Polizze',
-      description: 'Analisi completa delle tue esigenze assicurative, sottoscrizione e gestione di polizze personalizzate per ogni situazione.',
-      features: [
-        'Analisi del rischio personalizzata',
-        'Ricerca delle migliori soluzioni sul mercato',
-        'Sottoscrizione e attivazione polizze',
-        'Gestione e rinnovi',
-        'Assistenza continua'
-      ],
-      href: '/servizi/gestione-polizze'
-    },
-    {
-      icon: FaShieldAlt,
-      title: 'Gestione Sinistri',
-      description: 'Supporto completo in caso di sinistro: dalla denuncia alla liquidazione, ti assistiamo in ogni fase del processo.',
-      features: [
-        'Assistenza immediata in caso di sinistro',
-        'Gestione delle denunce',
-        'Coordinamento con le compagnie',
-        'Supporto nella documentazione',
-        'Monitoraggio delle liquidazioni'
-      ],
-      href: '/servizi/gestione-sinistri'
-    },
-    {
-      icon: FaChartLine,
-      title: 'Consulenza e Analisi Rischi',
-      description: 'Valutazione professionale dei rischi aziendali e personali per identificare le aree di vulnerabilità e le migliori strategie di protezione.',
-      features: [
-        'Risk assessment completo',
-        'Identificazione delle vulnerabilità',
-        'Strategie di mitigazione del rischio',
-        'Ottimizzazione delle coperture',
-        'Report dettagliati'
-      ],
-      href: '/servizi/consulenza-rischi'
-    },
-    {
-      icon: FaBuilding,
-      title: 'Assicurazioni Aziendali',
-      description: 'Soluzioni complete per proteggere la tua azienda: dalla responsabilità civile alla protezione del patrimonio aziendale.',
-      features: [
-        'Responsabilità Civile aziendale',
-        'Danni materiali a beni aziendali',
-        'Business Interruption',
-        'Cyber Risk',
-        'Flotte aziendali'
-      ],
-      href: '/servizi/assicurazioni-aziendali'
-    },
-    {
-      icon: FaUserShield,
-      title: 'Assicurazioni per Privati',
-      description: 'Protezione completa per te e la tua famiglia: auto, casa, salute, vita e risparmio con soluzioni su misura.',
-      features: [
-        'RC Auto e Moto',
-        'Assicurazione Casa',
-        'Tutela Salute',
-        'Polizze Vita',
-        'Previdenza e risparmio'
-      ],
-      href: '/servizi/assicurazioni-privati'
-    },
-    {
-      icon: FaHandshake,
-      title: 'Intermediazione Assicurativa',
-      description: 'Come broker indipendenti, analizziamo il mercato per trovare le soluzioni più vantaggiose per te, senza vincoli con compagnie.',
-      features: [
-        'Confronto di diverse compagnie',
-        'Negoziazione delle condizioni',
-        'Indipendenza e imparzialità',
-        'Ottimizzazione dei costi',
-        'Servizio personalizzato'
-      ],
-      href: '/servizi'
-    }
-  ];
 
   return (
     <Layout
@@ -113,8 +20,8 @@ export default function Servizi() {
         {/* Background Image with Overlay */}
         <div className="absolute inset-0">
           <Image
-            src="/images/hero/Milano Bosco verticale.jpg"
-            alt="Bosco Verticale Milano - Servizi General Brokers"
+            src="/images/hero/office-2.jpg"
+            alt="Ufficio General Brokers - Servizi Assicurativi"
             fill
             className="object-cover object-center"
             priority
@@ -131,9 +38,6 @@ export default function Servizi() {
           </div>
         </div>
       </section>
-
-      {/* Service Categories - 4 Macro Aree */}
-      <ServiceCategories />
 
       {/* Services Grid */}
       <section className="section-padding bg-white">
@@ -175,6 +79,21 @@ export default function Servizi() {
                 </div>
               );
             })}
+          </div>
+
+          {/* CTA Richiedi Preventivo */}
+          <div className="mt-12 bg-gradient-to-r from-primary-50 to-white border-2 border-primary-100 rounded-2xl p-8 md:p-10 text-center">
+            <h3 className="text-2xl font-heading font-bold text-secondary-900 mb-3">Richiedi Preventivo</h3>
+            <p className="text-secondary-600 mb-6 max-w-2xl mx-auto">
+              Contattaci per un preventivo gratuito e personalizzato. Analizzeremo le tue esigenze per trovare la soluzione assicurativa migliore.
+            </p>
+            <a
+              href="/contatti"
+              className="btn-primary inline-flex items-center gap-2"
+            >
+              Richiedi Preventivo Gratuito
+              <FaArrowRight />
+            </a>
           </div>
         </div>
       </section>

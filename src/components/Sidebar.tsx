@@ -4,7 +4,7 @@ import Image from 'next/image';
 import {
   FaBook,
   FaFileAlt,
-  FaIdCard,
+  FaBriefcase,
   FaThumbsUp,
   FaExclamationTriangle,
   FaHandshake,
@@ -37,22 +37,16 @@ const Sidebar = ({ isOpen = true, onClose }: SidebarProps) => {
       description: 'Torna alla pagina principale'
     },
     {
-      title: 'Che Bella Storia!',
+      title: 'Chi Siamo',
       href: '/chi-siamo',
       icon: FaBook,
       description: 'La nostra storia dal 1977'
     },
     {
-      title: 'Relazione Preventiva',
+      title: 'Richiedi Preventivo',
       href: '/relazione-preventiva',
       icon: FaFileAlt,
-      description: 'Risk Management professionale'
-    },
-    {
-      title: 'Carta Sanitaria',
-      href: '/day-medical',
-      icon: FaIdCard,
-      description: 'Day Medical Card'
+      description: 'Modulo guidato gratuito'
     },
     {
       title: 'Che noi consigliamo',
@@ -78,6 +72,12 @@ const Sidebar = ({ isOpen = true, onClose }: SidebarProps) => {
       href: '/contatti',
       icon: FaEnvelope,
       description: 'Scrivici o vieni a trovarci'
+    },
+    {
+      title: 'Lavora Con Noi',
+      href: '/lavora-con-noi',
+      icon: FaBriefcase,
+      description: 'Unisciti al nostro team'
     }
   ];
 
@@ -98,7 +98,7 @@ const Sidebar = ({ isOpen = true, onClose }: SidebarProps) => {
       {/* Overlay per mobile */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
+          className="fixed inset-0 bg-black/50 z-40 lg:hidden"
           onClick={onClose}
         />
       )}
@@ -114,11 +114,10 @@ const Sidebar = ({ isOpen = true, onClose }: SidebarProps) => {
         `}
       >
         {/* Logo e Header */}
-        <div className="p-6 border-b border-white border-opacity-20">
+        <div className="px-3 pt-4 pb-2">
           <Link href="/" className="block">
-            <div className="flex flex-col items-center text-center">
-              {/* Logo General Brokers */}
-              <div className="w-40 h-16 mb-4 relative">
+            <div className="bg-white rounded-lg p-4 flex items-center justify-center">
+              <div className="w-40 h-16 relative">
                 <Image
                   src="/images/logo/general-brokers-logo.jpg"
                   alt="General Brokers Logo"
@@ -127,7 +126,6 @@ const Sidebar = ({ isOpen = true, onClose }: SidebarProps) => {
                   priority
                 />
               </div>
-              <p className="text-xs text-white text-opacity-80">dal 1977</p>
             </div>
           </Link>
         </div>
@@ -147,28 +145,28 @@ const Sidebar = ({ isOpen = true, onClose }: SidebarProps) => {
                       flex items-center gap-3 px-4 py-3 rounded-lg
                       transition-all duration-200 group
                       ${active
-                        ? 'bg-white bg-opacity-20 shadow-md'
-                        : 'hover:bg-white hover:bg-opacity-10'
+                        ? 'bg-white/20 shadow-md'
+                        : 'hover:bg-white/10'
                       }
-                      ${item.highlight ? 'ring-2 ring-white ring-opacity-40' : ''}
+                      ${item.highlight ? 'ring-2 ring-white/40' : ''}
                     `}
                     onClick={onClose}
                   >
                     <Icon
                       className={`
                         flex-shrink-0 text-lg
-                        ${active ? 'text-white' : 'text-white text-opacity-80 group-hover:text-white'}
+                        ${active ? 'text-white' : 'text-white/80 group-hover:text-white'}
                       `}
                     />
                     <div className="flex-1 min-w-0">
                       <div className={`
                         font-medium text-sm leading-tight
-                        ${active ? 'text-white' : 'text-white text-opacity-90'}
+                        ${active ? 'text-white' : 'text-white/90'}
                       `}>
                         {item.title}
                       </div>
                       {item.description && (
-                        <div className="text-xs text-white text-opacity-60 mt-0.5">
+                        <div className="text-xs text-white/60 mt-0.5">
                           {item.description}
                         </div>
                       )}
@@ -181,8 +179,8 @@ const Sidebar = ({ isOpen = true, onClose }: SidebarProps) => {
         </nav>
 
         {/* Quick Access - 4 Pilastri */}
-        <div className="px-6 py-4 border-t border-white border-opacity-20">
-          <h3 className="text-xs font-semibold uppercase tracking-wider text-white text-opacity-70 mb-3">
+        <div className="px-6 py-4 border-t border-white/20">
+          <h3 className="text-xs font-semibold uppercase tracking-wider text-white/70 mb-3">
             Accesso Rapido
           </h3>
           <div className="grid grid-cols-2 gap-2">
@@ -194,7 +192,7 @@ const Sidebar = ({ isOpen = true, onClose }: SidebarProps) => {
                   href={link.href}
                   className="
                     flex flex-col items-center gap-2 p-3 rounded-lg
-                    bg-white bg-opacity-10 hover:bg-opacity-20
+                    bg-white/10 hover:bg-white/20
                     transition-all duration-200 text-center
                   "
                   onClick={onClose}
@@ -208,13 +206,13 @@ const Sidebar = ({ isOpen = true, onClose }: SidebarProps) => {
         </div>
 
         {/* Social Media */}
-        <div className="px-6 py-4 border-t border-white border-opacity-20">
+        <div className="px-6 py-4 border-t border-white/20">
           <div className="flex justify-center gap-4">
             <a
               href="https://www.linkedin.com/company/general-brokers"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-full bg-white bg-opacity-10 hover:bg-opacity-20 transition-all duration-200"
+              className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-all duration-200"
               aria-label="LinkedIn"
             >
               <FaLinkedin className="text-xl" />
@@ -223,7 +221,7 @@ const Sidebar = ({ isOpen = true, onClose }: SidebarProps) => {
               href="https://www.facebook.com/generalbrokers"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-full bg-white bg-opacity-10 hover:bg-opacity-20 transition-all duration-200"
+              className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-all duration-200"
               aria-label="Facebook"
             >
               <FaFacebook className="text-xl" />
@@ -232,7 +230,7 @@ const Sidebar = ({ isOpen = true, onClose }: SidebarProps) => {
         </div>
 
         {/* Footer Info */}
-        <div className="px-6 py-4 border-t border-white border-opacity-20 text-xs text-white text-opacity-60 text-center">
+        <div className="px-6 py-4 border-t border-white/20 text-xs text-white/60 text-center">
           <p className="mb-1">RUI: B000072481</p>
           <p>P.IVA: 03740950153</p>
         </div>

@@ -5,6 +5,7 @@ import {
   FaBuilding,
   FaUserShield,
   FaHandshake,
+  FaCogs,
 } from 'react-icons/fa';
 
 export interface ServiceData {
@@ -75,6 +76,35 @@ export const servicesData: ServiceData[] = [
       'Danni da eventi naturali',
       'Responsabilità civile',
       'Sinistri professionali'
+    ]
+  },
+  {
+    id: 'gestioni-specifiche',
+    icon: FaCogs,
+    title: 'Gestioni Specifiche',
+    shortDescription: 'Soluzioni personalizzate per polizze all-risks, multirischi artigiani e piccole industrie, rischi speciali e rendite.',
+    description: 'Gestione di polizze specializzate per esigenze particolari e settori specifici',
+    benefits: [
+      'Polizze All-Risks per pellicciai, orefici, costruttori',
+      'Multirischi per artigiani e piccole industrie',
+      'Rischi speciali per lavori complessi',
+      'Rendite immediate e differite',
+      'Polizze acquisite con beni e servizi',
+      'Soluzioni su misura per ogni settore'
+    ],
+    details: [
+      'Gestiamo polizze specializzate che richiedono competenze specifiche e conoscenza approfondita dei settori coinvolti.',
+      'Analizziamo le peculiarità della tua attività per individuare coperture adeguate che i prodotti standard non possono offrire.',
+      'Ci occupiamo della gestione completa di polizze all-risks, multirischi e coperture per rischi speciali.',
+      'Offriamo consulenza dedicata per rendite assicurative, sia immediate che differite, in base alle tue esigenze finanziarie.'
+    ],
+    coverage: [
+      'All-risks pellicciai e orefici',
+      'All-risks costruttori',
+      'Multirischi artigiani',
+      'Multirischi piccole industrie',
+      'Rischi speciali per lavori complessi',
+      'Rendite immediate e differite'
     ]
   },
   {

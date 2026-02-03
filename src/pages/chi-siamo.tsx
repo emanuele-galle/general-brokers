@@ -28,8 +28,8 @@ export default function ChiSiamo() {
         {/* Background Image with Overlay */}
         <div className="absolute inset-0">
           <Image
-            src="/images/hero/Galleria-Vittorio-Emanuele.webp"
-            alt="Galleria Vittorio Emanuele Milano - General Brokers"
+            src="/images/office/office-1.jpg"
+            alt="Ufficio General Brokers Milano - Via Tonale 20"
             fill
             className="object-cover object-center"
             priority
@@ -49,6 +49,30 @@ export default function ChiSiamo() {
         </div>
       </section>
 
+      {/* Testo Introduttivo */}
+      <section className="section-padding bg-white">
+        <div className="container-custom max-w-4xl">
+          <div className="space-y-6 text-secondary-700 text-lg leading-relaxed">
+            <p>
+              La Società Contemporanea, con le sue complessità, provoca nelle persone un senso di smarrimento
+              e d&apos;isolamento che rende sempre più difficile fare scelte opportune. Questo stato d&apos;animo
+              assale soprattutto chi si affaccia sul mercato assicurativo, sempre in costante evoluzione e modificazione.
+            </p>
+            <p>
+              Per tale ragione, l&apos;analisi delle polizze, la loro gestione e la cura dei tuoi interessi in caso
+              di sinistro sono aspetti da tenere costantemente sotto controllo: l&apos;importante è che venga fatto
+              da chi, come noi, possa garantirti una reale indipendenza da tutte le compagnie assicurative.
+            </p>
+            <p className="font-bold text-secondary-900">
+              Con la nostra esperienza, competenza e professionalità non ti abbandoneremo. Mai!
+            </p>
+            <p className="text-2xl md:text-3xl font-heading font-semibold text-primary-600 italic text-center pt-4">
+              &ldquo;l&apos;assicurezza firmata&rdquo;
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Story Section */}
       <section id="broker" className="relative section-padding overflow-hidden">
         {/* Sfondo gradiente */}
@@ -57,7 +81,7 @@ export default function ChiSiamo() {
         {/* Pattern decorativo */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-0 right-0 w-96 h-96 bg-primary-600 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 left-0 w-72 h-72 bg-accent-600 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 left-0 w-72 h-72 bg-primary-600 rounded-full blur-3xl"></div>
         </div>
 
         <div className="container-custom max-w-6xl relative z-10">
@@ -69,7 +93,7 @@ export default function ChiSiamo() {
               Broker vs Agente: <span className="text-gradient">La Differenza</span>
             </h2>
             <p className="text-xl text-secondary-600 max-w-3xl mx-auto">
-              Mettere in mani sicure quello che hai costruito per la tua famiglia e la tua azienda
+              Proteggere quello che hai costruito per la tua famiglia e la tua azienda
             </p>
           </div>
 
@@ -84,13 +108,18 @@ export default function ChiSiamo() {
               </div>
               <div className="space-y-4 text-secondary-700 leading-relaxed">
                 <p>
-                  Il broker rappresenta <strong className="text-primary-600">TE, il cliente</strong>, e si sostituisce nella gestione complessiva
-                  di tutte le problematiche assicurative presenti e future.
+                  Il broker è l&apos;esperto assicurativo che si pone come <strong className="text-primary-600">TUO</strong> consulente nei rapporti con le compagnie di assicurazione.
+                </p>
+                <p>
+                  Il broker rappresenta <strong className="text-primary-600">TE, il Cliente</strong>, ed è slegato da qualunque vincolo di dipendenza dalle compagnie.
+                </p>
+                <p>
+                  Il broker si sostituisce a <strong className="text-primary-600">TE</strong> nella gestione complessiva di tutte le problematiche assicurative presenti e future.
                 </p>
                 <div className="flex items-start gap-3 bg-primary-50 p-4 rounded-xl">
                   <FaCheckCircle className="text-primary-600 text-xl flex-shrink-0 mt-1" />
                   <p className="font-semibold">
-                    Unico interlocutore professionista, indipendente da tutte le Compagnie
+                    Unico interlocutore professionista, indipendente da tutte le compagnie
                   </p>
                 </div>
               </div>
@@ -106,8 +135,7 @@ export default function ChiSiamo() {
               </div>
               <div className="space-y-4 text-secondary-700 leading-relaxed">
                 <p>
-                  L'agente rappresenta <strong>una compagnia d'assicurazione</strong> e agisce esclusivamente
-                  nell'interesse della stessa, fino a quando ne ha convenienza.
+                  L&apos;agente, noto come assicuratore, rappresenta <strong>una compagnia di assicurazione</strong> e agisce esclusivamente nell&apos;interesse della stessa, fino a quando ne ha convenienza.
                 </p>
                 <div className="flex items-start gap-3 bg-secondary-100 p-4 rounded-xl">
                   <FaExclamationTriangle className="text-secondary-600 text-xl flex-shrink-0 mt-1" />
@@ -181,10 +209,10 @@ export default function ChiSiamo() {
             </div>
 
             {/* Gestione Sinistri */}
-            <div className="group relative bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-t-4 border-accent-600">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-accent-100 to-transparent rounded-bl-full opacity-50"></div>
+            <div className="group relative bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-t-4 border-primary-600">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary-100 to-transparent rounded-bl-full opacity-50"></div>
               <div className="relative">
-                <div className="w-20 h-20 bg-gradient-to-br from-accent-600 to-accent-700 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-lg">
+                <div className="w-20 h-20 bg-gradient-to-br from-primary-600 to-primary-700 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-lg">
                   <FaExclamationTriangle className="text-4xl text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-secondary-900 mb-3">Gestione Sinistri</h3>
@@ -193,19 +221,19 @@ export default function ChiSiamo() {
                 </p>
               <ul className="space-y-3 text-secondary-700">
                 <li className="flex items-start gap-2">
-                  <FaCheckCircle className="text-accent-600 mt-1 flex-shrink-0" />
+                  <FaCheckCircle className="text-primary-600 mt-1 flex-shrink-0" />
                   <span>Istruisce personalmente tutte le pratiche</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <FaCheckCircle className="text-accent-600 mt-1 flex-shrink-0" />
+                  <FaCheckCircle className="text-primary-600 mt-1 flex-shrink-0" />
                   <span>Contatta la Compagnia per tuo conto</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <FaCheckCircle className="text-accent-600 mt-1 flex-shrink-0" />
+                  <FaCheckCircle className="text-primary-600 mt-1 flex-shrink-0" />
                   <span>Incarica periti, legali ed esperti specifici</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <FaCheckCircle className="text-accent-600 mt-1 flex-shrink-0" />
+                  <FaCheckCircle className="text-primary-600 mt-1 flex-shrink-0" />
                   <span>Responsabile a 360° per tutta la durata</span>
                 </li>
               </ul>
@@ -250,17 +278,17 @@ export default function ChiSiamo() {
       {/* Perché Broker Section */}
       <section className="relative section-padding overflow-hidden">
         {/* Sfondo con pattern geometrico */}
-        <div className="absolute inset-0 bg-gradient-to-br from-accent-50 via-white to-primary-50"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-white via-white to-primary-50"></div>
 
         {/* Pattern decorativo */}
         <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-accent-600 rounded-full blur-3xl"></div>
+          <div className="absolute top-0 right-0 w-96 h-96 bg-primary-600 rounded-full blur-3xl"></div>
           <div className="absolute bottom-0 left-0 w-72 h-72 bg-primary-600 rounded-full blur-3xl"></div>
         </div>
 
         <div className="container-custom relative z-10">
           <div className="text-center mb-16">
-            <div className="inline-block bg-accent-600 text-white px-8 py-3 rounded-full font-bold text-lg mb-6 shadow-lg">
+            <div className="inline-block bg-primary-600 text-white px-8 py-3 rounded-full font-bold text-lg mb-6 shadow-lg">
               Il Metodo General Brokers
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-secondary-900 mb-6">
@@ -284,8 +312,8 @@ export default function ChiSiamo() {
             </div>
 
             <div className="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-accent-600 to-accent-700 rounded-t-2xl"></div>
-              <div className="w-16 h-16 bg-gradient-to-br from-accent-600 to-accent-700 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary-600 to-primary-700 rounded-t-2xl"></div>
+              <div className="w-16 h-16 bg-gradient-to-br from-primary-600 to-primary-700 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
                 <FaChartLine className="text-3xl text-white" />
               </div>
               <h3 className="text-xl font-bold text-secondary-900 mb-3 text-center">Confronta</h3>
@@ -321,7 +349,7 @@ export default function ChiSiamo() {
             <p className="text-xl text-secondary-700 leading-relaxed text-center max-w-4xl mx-auto">
               Un unico <strong className="text-primary-600">interlocutore professionale</strong>,
               indipendente da tutte le Compagnie, che tutela i tuoi interessi con
-              <strong className="text-accent-600"> competenza e trasparenza</strong> assoluta.
+              <strong className="text-primary-600"> competenza e trasparenza</strong> assoluta.
             </p>
           </div>
         </div>
@@ -348,7 +376,7 @@ export default function ChiSiamo() {
               <div className="flex flex-col md:flex-row items-center justify-between gap-6">
                 <div className="text-center md:text-left">
                   <div className="flex items-center gap-3 mb-3 justify-center md:justify-start">
-                    <FaAward className="text-4xl text-accent-300" />
+                    <FaAward className="text-4xl text-white" />
                     <h3 className="text-2xl font-bold">Registro RUI</h3>
                   </div>
                   <p className="text-primary-100 text-lg">
@@ -471,10 +499,10 @@ export default function ChiSiamo() {
             </div>
 
             {/* Competenza */}
-            <div className="group relative bg-white rounded-3xl p-10 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-t-4 border-accent-600">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-accent-100 to-transparent rounded-bl-full opacity-50"></div>
+            <div className="group relative bg-white rounded-3xl p-10 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-t-4 border-primary-600">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary-100 to-transparent rounded-bl-full opacity-50"></div>
               <div className="relative text-center">
-                <div className="w-24 h-24 bg-gradient-to-br from-accent-600 to-accent-700 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform shadow-lg">
+                <div className="w-24 h-24 bg-gradient-to-br from-primary-600 to-primary-700 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform shadow-lg">
                   <FaAward className="text-4xl text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-secondary-900 mb-4">Competenza</h3>
@@ -550,10 +578,9 @@ export default function ChiSiamo() {
                 </div>
 
                 <div className="flex items-start gap-3 text-primary-100 italic">
-                  <FaCheckCircle className="text-accent-300 text-xl flex-shrink-0 mt-1" />
+                  <FaCheckCircle className="text-white text-xl flex-shrink-0 mt-1" />
                   <p>
-                    Facilmente raggiungibile con mezzi pubblici<br />
-                    Spazi confortevoli per consulenze personalizzate
+                    Facilmente raggiungibile con mezzi pubblici
                   </p>
                 </div>
               </div>
@@ -596,7 +623,7 @@ export default function ChiSiamo() {
         {/* Pattern decorativo */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-0 w-96 h-96 bg-primary-600 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 right-0 w-72 h-72 bg-accent-600 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 right-0 w-72 h-72 bg-primary-600 rounded-full blur-3xl"></div>
         </div>
 
         <div className="container-custom max-w-5xl relative z-10">
@@ -609,7 +636,7 @@ export default function ChiSiamo() {
             <div className="grid md:grid-cols-3 gap-6 mb-12">
               <div className="bg-white/10 backdrop-blur-xl rounded-2xl p-8 border border-white/20">
                 <div className="w-16 h-16 bg-accent-500/30 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <FaUsers className="text-3xl text-accent-300" />
+                  <FaUsers className="text-3xl text-white" />
                 </div>
                 <p className="text-white leading-relaxed">
                   Anche se non sei il signor FIAT puoi ottenere <strong>servizi ad elevato valore aggiunto</strong>
@@ -627,7 +654,7 @@ export default function ChiSiamo() {
 
               <div className="bg-white/10 backdrop-blur-xl rounded-2xl p-8 border border-white/20">
                 <div className="w-16 h-16 bg-accent-500/30 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <FaHandshake className="text-3xl text-accent-300" />
+                  <FaHandshake className="text-3xl text-white" />
                 </div>
                 <p className="text-white leading-relaxed">
                   Siamo <strong>interessati a Te</strong> che hai fatto della Tua famiglia una ragione di vita
@@ -638,11 +665,11 @@ export default function ChiSiamo() {
             {/* Quote finale */}
             <div className="bg-gradient-to-r from-primary-600/20 to-accent-600/20 backdrop-blur-sm rounded-3xl p-10 md:p-14 border border-white/10 shadow-2xl">
               <div className="space-y-8">
-                <div className="text-6xl md:text-7xl text-accent-300 opacity-50">"</div>
+                <div className="text-6xl md:text-7xl text-white opacity-50">"</div>
                 <p className="text-2xl md:text-4xl font-heading italic leading-relaxed text-white">
                   Non siamo James Joyce<br />
                   e non siamo a Dublino,<br />
-                  <strong className="text-accent-300">siamo a Milano.</strong>
+                  <strong className="text-white">siamo a Milano.</strong>
                 </p>
                 <div className="w-24 h-1 bg-gradient-to-r from-accent-400 to-primary-400 mx-auto rounded-full"></div>
                 <p className="text-xl md:text-2xl text-primary-200">

@@ -25,8 +25,8 @@ export default function NoteLegali() {
                 <p><strong>Partita IVA / Codice Fiscale:</strong> 03740950153</p>
                 <p><strong>Capitale Sociale:</strong> € 70.000,00 i.v.</p>
                 <p><strong>Telefono:</strong> 02 6698.4847</p>
-                <p><strong>Fax:</strong> 02 6707.2163</p>
                 <p><strong>Email:</strong> info@generalbrokers.it</p>
+                <p><strong>PEC:</strong> info@pec.generalbrokers.it</p>
                 <p><strong>Codice ATECO:</strong> 66.22.00 - Attività di agenti e intermediari delle assicurazioni</p>
                 <p><strong>Iscrizione RUI:</strong> Sezione B n. B000072481</p>
               </div>
@@ -116,7 +116,31 @@ export default function NoteLegali() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-secondary-900 mb-4">10. Contatti</h2>
+              <h2 className="text-2xl font-bold text-secondary-900 mb-4">10. Comunicazione ISVAP</h2>
+              <p>
+                A norma della circolare ISVAP 393/D del 17/01/2000 si comunica che il Legale Rappresentante
+                e gestore preposto alla mediazione tramite internet &egrave;:
+              </p>
+              <div className="bg-secondary-50 p-6 rounded-lg my-4">
+                <p><strong>Luigi Bonardi</strong></p>
+                <p>Amministratore Unico - Broker</p>
+                <p>RUI: B000186864</p>
+              </div>
+              <p>
+                La Societ&agrave; &egrave; soggetta alla vigilanza dell&apos;IVASS - Registro Unico degli Intermediari
+                assicurativi e riassicurativi.
+              </p>
+              <p className="mt-3">
+                &Egrave; possibile verificare la regolare iscrizione al RUI (Sezione B n. B000072481)
+                collegandosi al sito{' '}
+                <a href="https://www.ivass.it" target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:text-primary-700 underline">
+                  www.ivass.it
+                </a>
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-bold text-secondary-900 mb-4">11. Contatti</h2>
               <p>
                 Per qualsiasi informazione o chiarimento relativo alle presenti Note Legali, è possibile contattare:
               </p>

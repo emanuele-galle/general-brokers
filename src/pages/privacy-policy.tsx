@@ -119,7 +119,31 @@ export default function PrivacyPolicy() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-secondary-900 mb-4">9. Modifiche alla Privacy Policy</h2>
+              <h2 className="text-2xl font-bold text-secondary-900 mb-4">9. Comunicazione ISVAP</h2>
+              <p>
+                A norma della circolare ISVAP 393/D del 17/01/2000 si comunica che il Legale Rappresentante
+                e gestore preposto alla mediazione tramite internet &egrave;:
+              </p>
+              <div className="bg-secondary-50 p-6 rounded-lg my-4">
+                <p><strong>Luigi Bonardi</strong></p>
+                <p>Amministratore Unico - Broker</p>
+                <p>RUI: B000186864</p>
+              </div>
+              <p>
+                La Societ&agrave; &egrave; soggetta alla vigilanza dell&apos;IVASS - Registro Unico degli Intermediari
+                assicurativi e riassicurativi.
+              </p>
+              <p className="mt-3">
+                &Egrave; possibile verificare la regolare iscrizione al RUI (Sezione B n. B000072481)
+                collegandosi al sito{' '}
+                <a href="https://www.ivass.it" target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:text-primary-700 underline">
+                  www.ivass.it
+                </a>
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-bold text-secondary-900 mb-4">10. Modifiche alla Privacy Policy</h2>
               <p>
                 La presente Privacy Policy può essere soggetta a modifiche. Si invita pertanto a consultare periodicamente questa pagina per verificare eventuali aggiornamenti.
               </p>

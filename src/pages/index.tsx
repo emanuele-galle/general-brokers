@@ -8,6 +8,7 @@ import StatsGrid from '@/components/StatsGrid';
 import { servicesData } from '@/data/servicesData';
 import {
   FaArrowRight,
+  FaClipboardList,
 } from 'react-icons/fa';
 
 export default function Home() {
@@ -24,45 +25,6 @@ export default function Home() {
       {/* Four Pillars - Elementi identitari chiave */}
       <FourPillars />
 
-      {/* Office Gallery - Immagini dell'ufficio */}
-      <section className="section-padding bg-secondary-50">
-        <div className="container-custom">
-          <div className="text-center mb-12">
-            <h2 className="section-title">Il Nostro Ufficio a Milano</h2>
-            <p className="section-subtitle">
-              Vieni a trovarci nella nostra sede in Via Tonale, 20 - Milano
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow">
-              <img
-                src="/images/office/office-1.jpg"
-                alt="Sede General Brokers Milano - Via Tonale 20 - Reception e area accoglienza clienti"
-                className="w-full h-80 object-cover hover:scale-105 transition-transform duration-300"
-                loading="lazy"
-              />
-            </div>
-            <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow">
-              <img
-                src="/images/office/office-2.jpg"
-                alt="Ufficio broker assicurativo General Brokers Milano - Area consulenza"
-                className="w-full h-80 object-cover hover:scale-105 transition-transform duration-300"
-                loading="lazy"
-              />
-            </div>
-            <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow">
-              <img
-                src="/images/office/office-3.jpg"
-                alt="Sala riunioni General Brokers - Consulenza assicurativa personalizzata Milano"
-                className="w-full h-80 object-cover hover:scale-105 transition-transform duration-300"
-                loading="lazy"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* CiòCheServe - Filosofia aziendale */}
       <CioCheServe />
 
@@ -72,7 +34,7 @@ export default function Home() {
           <div className="text-center mb-12">
             <h2 className="section-title">I Nostri Servizi Assicurativi</h2>
             <p className="section-subtitle">
-              Soluzioni assicurative complete per privati e aziende a Milano
+              Soluzioni assicurative complete per privati e aziende
             </p>
           </div>
 
@@ -97,6 +59,20 @@ export default function Home() {
                 </div>
               );
             })}
+
+            {/* CTA Card - Richiedi Preventivo */}
+            <a href="/contatti" className="card border-2 border-primary-100 bg-gradient-to-br from-primary-50 to-white flex flex-col items-center justify-center text-center group hover:border-primary-300">
+              <div className="w-14 h-14 bg-primary-600 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary-700 transition-colors">
+                <FaClipboardList className="text-2xl text-white" />
+              </div>
+              <h3 className="text-xl font-heading font-bold mb-3 text-primary-600">Richiedi Preventivo</h3>
+              <p className="text-secondary-600 mb-4">
+                Contattaci per un preventivo gratuito e personalizzato sulle tue esigenze assicurative.
+              </p>
+              <span className="text-primary-600 hover:text-primary-700 font-semibold inline-flex items-center gap-2">
+                Richiedi ora <FaArrowRight className="text-sm group-hover:translate-x-1 transition-transform" />
+              </span>
+            </a>
           </div>
         </div>
       </section>
@@ -160,6 +136,45 @@ export default function Home() {
             </div>
           </div>
 
+        </div>
+      </section>
+
+      {/* Office Gallery */}
+      <section className="section-padding bg-secondary-50">
+        <div className="container-custom">
+          <div className="text-center mb-12">
+            <h2 className="section-title">Il Nostro Ufficio</h2>
+            <p className="section-subtitle">
+              Vieni a trovarci nella nostra sede in Via Tonale, 20 - Milano
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow">
+              <img
+                src="/images/office/office-1.jpg"
+                alt="Sede General Brokers Milano - Via Tonale 20 - Reception e area accoglienza clienti"
+                className="w-full h-80 object-cover hover:scale-105 transition-transform duration-300"
+                loading="lazy"
+              />
+            </div>
+            <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow">
+              <img
+                src="/images/office/office-2.jpg"
+                alt="Ufficio broker assicurativo General Brokers Milano - Area consulenza"
+                className="w-full h-80 object-cover hover:scale-105 transition-transform duration-300"
+                loading="lazy"
+              />
+            </div>
+            <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow">
+              <img
+                src="/images/office/office-3.jpg"
+                alt="Sala riunioni General Brokers - Consulenza assicurativa personalizzata Milano"
+                className="w-full h-80 object-cover hover:scale-105 transition-transform duration-300"
+                loading="lazy"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
