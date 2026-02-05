@@ -152,7 +152,21 @@ export default function NoteLegali() {
             </section>
           </div>
         </div>
-      </section>
+      
+            {/* Sviluppo e Gestione Tecnica */}
+            <div className="mt-12 pt-8 border-t border-secondary-800">
+              <h2 className="text-xl font-bold text-white mb-3">Sviluppo e Gestione Tecnica del Sito</h2>
+              <p className="text-secondary-400">Questo sito web è stato realizzato e viene gestito da:</p>
+              <p className="text-secondary-400 mt-2">
+                <strong className="text-white">FODI S.r.l. – Startup Innovativa</strong><br/>
+                Via Santicelli 18/A, 88068 Soverato (CZ)<br/>
+                P.IVA: 03856160793<br/>
+                Email: <a href="mailto:info@fodisrl.it" className="text-primary-400 hover:underline">info@fodisrl.it</a><br/>
+                Tel: +39 0963 576433<br/>
+                Web: <a href="https://www.fodisrl.it" target="_blank" rel="noopener noreferrer" className="text-primary-400 hover:underline">www.fodisrl.it</a>
+              </p>
+            </div>
+        </section>
     </Layout>
   );
 }

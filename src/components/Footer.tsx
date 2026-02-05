@@ -276,6 +276,12 @@ const Footer = () => {
               </a>
             </p>
           </div>
+          <p className="text-secondary-600 text-xs mt-4">
+            Realizzato da{" "}
+            <a href="https://www.fodisrl.it" target="_blank" rel="noopener noreferrer" className="text-secondary-400 hover:text-primary-400 transition-colors">
+              Fodi S.r.l.
+            </a>
+          </p>
         </div>
       </div>
     </footer>
