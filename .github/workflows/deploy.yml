@@ -39,10 +39,15 @@ jobs:
             docker compose up -d
 
             # Verify container is running
-            echo "✅ Verifying deployment..."
+            echo "Verifying deployment..."
             docker compose ps
 
-            echo "✨ Deployment completed successfully!"
+            # Docker cleanup - remove old images and build cache
+            echo "Cleaning up old Docker resources..."
+            docker image prune -f 2>/dev/null || true
+            docker builder prune -f --filter "until=24h" 2>/dev/null || true
+
+            echo "Deployment completed successfully!"
 
       - name: Notify N8N
         if: always()
