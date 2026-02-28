@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import Link from 'next/link';
 import { FaTimes, FaCheckCircle, FaPhone, FaEnvelope } from 'react-icons/fa';
 
 interface ServiceModalProps {
@@ -126,14 +127,14 @@ export default function ServiceModal({
                 Contattaci per una consulenza gratuita e personalizzata. I nostri esperti sono pronti ad aiutarti.
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
-                <a
+                <Link
                   href="/contatti"
                   className="btn-primary inline-flex items-center justify-center gap-2"
                   onClick={onClose}
                 >
                   <FaEnvelope />
                   Richiedi Consulenza
-                </a>
+                </Link>
                 <a
                   href="tel:026698.4847"
                   className="btn-secondary inline-flex items-center justify-center gap-2"

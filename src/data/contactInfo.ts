@@ -69,12 +69,3 @@ export const legalInfo = {
   ivassVerifica: 'È possibile verificare la regolare iscrizione al RUI (Sezione B n. B000072481) collegandosi al sito www.ivass.it',
   isvapCircolare: 'A norma della circolare ISVAP 393/D del 17/01/2000 si comunica che il Legale Rappresentante e gestore preposto alla mediazione tramite internet è: Luigi Bonardi (Amministratore Unico - Broker - RUI: B000186864)'
 } as const;
-
-/**
- * Helper functions per formattazione
- */
-export const formatters = {
-  phoneLink: (phone: string) => `tel:${phone.replace(/\s/g, '')}`,
-  emailLink: (email: string) => `mailto:${email}`,
-  addressForGoogle: () => encodeURIComponent(contactInfo.address.full)
-};

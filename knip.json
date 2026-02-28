@@ -1,0 +1,6 @@
+{
+  "$schema": "https://unpkg.com/knip@latest/schema.json",
+  "entry": ["src/pages/**/*.{ts,tsx}", "next.config.{js,mjs,ts}"],
+  "project": ["src/**/*.{ts,tsx}"],
+  "ignoreDependencies": ["tailwindcss"]
+}

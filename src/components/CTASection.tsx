@@ -6,7 +6,7 @@ interface CTASectionProps {
   title?: string;
   description?: string;
   variant?: 'default' | 'consultation' | 'contact' | 'custom';
-  theme?: 'gradient' | 'white' | 'secondary';
+  theme?: 'dark' | 'white' | 'secondary';
   primaryButton?: {
     text: string;
     href: string;
@@ -20,21 +20,16 @@ interface CTASectionProps {
   className?: string;
 }
 
-/**
- * CTASection - Componente riutilizzabile per Call-to-Action
- * Riduce la duplicazione delle 26+ istanze di CTA sparse nel sito
- */
 const CTASection = ({
   title,
   description,
   variant = 'default',
-  theme = 'gradient',
+  theme = 'dark',
   primaryButton,
   secondaryButton,
   className = ''
 }: CTASectionProps) => {
 
-  // Configurazioni predefinite per varianti comuni
   const variants = {
     default: {
       title: 'Hai Bisogno di Supporto?',
@@ -80,14 +75,12 @@ const CTASection = ({
     }
   };
 
-  // Seleziona la configurazione
   const config = variant === 'custom'
     ? { title, description, primaryButton, secondaryButton }
     : { ...variants[variant], ...{ title, description, primaryButton, secondaryButton } };
 
-  // Temi colore
   const themes = {
-    gradient: 'gradient-red text-white',
+    dark: 'bg-secondary-700 text-white',
     white: 'bg-white text-secondary-900 border-t border-secondary-200',
     secondary: 'bg-secondary-50 text-secondary-900'
   };
@@ -96,13 +89,13 @@ const CTASection = ({
     <section className={`section-padding ${themes[theme]} ${className}`}>
       <div className="container-custom max-w-4xl text-center">
         {config.title && (
-          <h2 className={`text-3xl md:text-4xl font-bold mb-6 ${theme === 'gradient' ? '' : 'text-secondary-900'}`}>
+          <h2 className={`font-heading text-3xl md:text-4xl font-bold mb-6 ${theme === 'dark' ? 'text-white' : 'text-secondary-900'}`}>
             {config.title}
           </h2>
         )}
 
         {config.description && (
-          <p className={`text-xl mb-8 ${theme === 'gradient' ? 'text-primary-50' : 'text-secondary-600'}`}>
+          <p className={`text-lg mb-8 ${theme === 'dark' ? 'text-white/60' : 'text-secondary-600'}`}>
             {config.description}
           </p>
         )}
@@ -112,8 +105,8 @@ const CTASection = ({
             <a
               href={config.primaryButton.href}
               className={`btn-primary inline-flex items-center ${
-                theme === 'gradient'
-                  ? 'bg-white text-primary-600 hover:bg-primary-50'
+                theme === 'dark'
+                  ? 'bg-primary-600 text-white hover:bg-primary-700'
                   : 'bg-primary-600 text-white hover:bg-primary-700'
               }`}
             >
@@ -126,8 +119,8 @@ const CTASection = ({
             <a
               href={config.secondaryButton.href}
               className={`btn-outline inline-flex items-center ${
-                theme === 'gradient'
-                  ? 'border-white text-white hover:bg-white hover:text-primary-600'
+                theme === 'dark'
+                  ? 'border-white/30 text-white hover:bg-white hover:text-secondary-900'
                   : 'border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white'
               }`}
             >
@@ -142,29 +135,3 @@ const CTASection = ({
 };
 
 export default CTASection;
-
-/**
- * ESEMPI DI UTILIZZO:
- *
- * // Default CTA
- * <CTASection />
- *
- * // CTA per consulenza
- * <CTASection variant="consultation" />
- *
- * // CTA per contatto
- * <CTASection variant="contact" theme="white" />
- *
- * // CTA personalizzata
- * <CTASection
- *   variant="custom"
- *   title="Il Tuo Titolo Personalizzato"
- *   description="La tua descrizione"
- *   theme="secondary"
- *   primaryButton={{
- *     text: "Scopri di più",
- *     href: "/servizi",
- *     icon: <FaArrowRight className="ml-2" />
- *   }}
- * />
- */

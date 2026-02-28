@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Layout from '@/components/Layout';
 
 export default function NoteLegali() {
@@ -35,13 +36,13 @@ export default function NoteLegali() {
             <section>
               <h2 className="text-2xl font-bold text-secondary-900 mb-4">2. Registro Unico Intermediari (RUI)</h2>
               <p>
-                General Brokers Srl è iscritta al <strong>Registro Unico degli Intermediari assicurativi e riassicurativi</strong> (RUI) tenuto dall'IVASS (Istituto per la Vigilanza sulle Assicurazioni) alla <strong>Sezione B - Broker</strong> con il numero di iscrizione <strong>B000072481</strong>.
+                General Brokers Srl &egrave; iscritta al <strong>Registro Unico degli Intermediari assicurativi e riassicurativi</strong> (RUI) tenuto dall&apos;IVASS (Istituto per la Vigilanza sulle Assicurazioni) alla <strong>Sezione B - Broker</strong> con il numero di iscrizione <strong>B000072481</strong>.
               </p>
               <p>
-                L'attività di intermediazione assicurativa è soggetta alla vigilanza dell'IVASS ai sensi del D.Lgs. 209/2005 (Codice delle Assicurazioni Private).
+                L&apos;attivit&agrave; di intermediazione assicurativa &egrave; soggetta alla vigilanza dell&apos;IVASS ai sensi del D.Lgs. 209/2005 (Codice delle Assicurazioni Private).
               </p>
               <p className="mt-3">
-                È possibile verificare l'iscrizione al RUI consultando il registro pubblico sul sito dell'IVASS:{' '}
+                &Egrave; possibile verificare l&apos;iscrizione al RUI consultando il registro pubblico sul sito dell&apos;IVASS:{' '}
                 <a href="https://servizi.ivass.it/RuirPubblica/" target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:text-primary-700 underline">
                   https://servizi.ivass.it/RuirPubblica/
                 </a>
@@ -59,9 +60,9 @@ export default function NoteLegali() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-secondary-900 mb-4">4. Diritti d'Autore e Proprietà Intellettuale</h2>
+              <h2 className="text-2xl font-bold text-secondary-900 mb-4">4. Diritti d&apos;Autore e Propriet&agrave; Intellettuale</h2>
               <p>
-                Tutti i contenuti presenti sul sito (testi, immagini, loghi, grafica, struttura) sono di proprietà di General Brokers Srl o concessi in licenza e sono protetti dalle leggi italiane ed internazionali sulla proprietà intellettuale.
+                Tutti i contenuti presenti sul sito (testi, immagini, loghi, grafica, struttura) sono di propriet&agrave; di General Brokers Srl o concessi in licenza e sono protetti dalle leggi italiane ed internazionali sulla propriet&agrave; intellettuale.
               </p>
               <p>
                 È vietata la riproduzione, anche parziale, dei contenuti del sito senza autorizzazione scritta da parte di General Brokers Srl.
@@ -71,10 +72,10 @@ export default function NoteLegali() {
             <section>
               <h2 className="text-2xl font-bold text-secondary-900 mb-4">5. Limitazione di Responsabilità</h2>
               <p>
-                General Brokers Srl si impegna a mantenere le informazioni del sito aggiornate e accurate, tuttavia non può garantire l'assenza di errori o imprecisioni.
+                General Brokers Srl si impegna a mantenere le informazioni del sito aggiornate e accurate, tuttavia non pu&ograve; garantire l&apos;assenza di errori o imprecisioni.
               </p>
               <p>
-                L'utilizzo delle informazioni contenute nel sito è a rischio e responsabilità dell'utente. General Brokers Srl non può essere ritenuta responsabile per eventuali danni diretti o indiretti derivanti dall'uso o dall'impossibilità di utilizzare il sito.
+                L&apos;utilizzo delle informazioni contenute nel sito &egrave; a rischio e responsabilit&agrave; dell&apos;utente. General Brokers Srl non pu&ograve; essere ritenuta responsabile per eventuali danni diretti o indiretti derivanti dall&apos;uso o dall&apos;impossibilit&agrave; di utilizzare il sito.
               </p>
               <p>
                 Il sito può contenere collegamenti a siti web di terze parti. General Brokers Srl non ha alcun controllo su tali siti e non può essere ritenuta responsabile per i loro contenuti o le loro policy sulla privacy.
@@ -84,10 +85,10 @@ export default function NoteLegali() {
             <section>
               <h2 className="text-2xl font-bold text-secondary-900 mb-4">6. Informativa sulle Compagnie Assicurative</h2>
               <p>
-                In qualità di broker assicurativo indipendente, General Brokers Srl non rappresenta alcuna compagnia assicurativa ma agisce nell'esclusivo interesse dei propri clienti.
+                In qualit&agrave; di broker assicurativo indipendente, General Brokers Srl non rappresenta alcuna compagnia assicurativa ma agisce nell&apos;esclusivo interesse dei propri clienti.
               </p>
               <p>
-                General Brokers Srl collabora con diverse compagnie assicurative autorizzate e vigilate da IVASS o da autorità di vigilanza di altri Paesi dell'Unione Europea.
+                General Brokers Srl collabora con diverse compagnie assicurative autorizzate e vigilate da IVASS o da autorit&agrave; di vigilanza di altri Paesi dell&apos;Unione Europea.
               </p>
             </section>
 
@@ -95,9 +96,9 @@ export default function NoteLegali() {
               <h2 className="text-2xl font-bold text-secondary-900 mb-4">7. Trattamento dei Dati Personali</h2>
               <p>
                 Per informazioni sul trattamento dei dati personali, si rimanda alla sezione{' '}
-                <a href="/privacy-policy" className="text-primary-600 hover:text-primary-700 underline">
+                <Link href="/privacy-policy" className="text-primary-600 hover:text-primary-700 underline">
                   Privacy Policy
-                </a>.
+                </Link>.
               </p>
             </section>
 
@@ -111,7 +112,7 @@ export default function NoteLegali() {
             <section>
               <h2 className="text-2xl font-bold text-secondary-900 mb-4">9. Legge Applicabile e Foro Competente</h2>
               <p>
-                Le presenti Note Legali sono regolate dalla legge italiana. Per qualsiasi controversia relativa all'interpretazione o all'esecuzione delle presenti Note Legali, sarà competente in via esclusiva il Foro di Milano.
+                Le presenti Note Legali sono regolate dalla legge italiana. Per qualsiasi controversia relativa all&apos;interpretazione o all&apos;esecuzione delle presenti Note Legali, sar&agrave; competente in via esclusiva il Foro di Milano.
               </p>
             </section>
 

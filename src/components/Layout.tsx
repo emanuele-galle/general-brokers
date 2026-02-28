@@ -75,13 +75,13 @@ const Layout = ({
       </Head>
 
       <div className="flex min-h-screen">
-        {/* Sidebar - fissa su desktop, mobile con overlay */}
+        {/* Sidebar */}
         <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
 
-        {/* Mobile menu button - floating */}
+        {/* Mobile menu button */}
         <button
           onClick={() => setIsSidebarOpen(true)}
-          className="lg:hidden fixed top-4 left-4 z-40 bg-primary-600 text-white p-3 rounded-lg shadow-lg hover:bg-primary-700 transition-colors"
+          className="lg:hidden fixed top-4 left-4 z-40 bg-primary-700 text-white p-3 rounded-lg shadow-lg hover:bg-primary-800 transition-colors"
           aria-label="Apri menu"
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -89,7 +89,7 @@ const Layout = ({
           </svg>
         </button>
 
-        {/* Main content area con offset per sidebar */}
+        {/* Main content area */}
         <div className="flex flex-col flex-1 lg:ml-72">
           <main className="flex-grow">
             {children}

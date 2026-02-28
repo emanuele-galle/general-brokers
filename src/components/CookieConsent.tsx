@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { FaCookie, FaTimes } from 'react-icons/fa';
 
 const CookieConsent = () => {
@@ -64,13 +65,13 @@ const CookieConsent = () => {
                 </p>
                 <p className="text-xs text-secondary-600">
                   Per maggiori informazioni consulta la nostra{' '}
-                  <a href="/cookie-policy" className="text-primary-600 hover:text-primary-700 underline font-semibold">
+                  <Link href="/cookie-policy" className="text-primary-600 hover:text-primary-700 underline font-semibold">
                     Cookie Policy
-                  </a>
+                  </Link>
                   {' '}e{' '}
-                  <a href="/privacy-policy" className="text-primary-600 hover:text-primary-700 underline font-semibold">
+                  <Link href="/privacy-policy" className="text-primary-600 hover:text-primary-700 underline font-semibold">
                     Privacy Policy
-                  </a>
+                  </Link>
                   .
                 </p>
 
@@ -88,12 +89,12 @@ const CookieConsent = () => {
                   >
                     Solo Cookie Necessari
                   </button>
-                  <a
+                  <Link
                     href="/cookie-policy"
                     className="text-sm text-secondary-700 hover:text-primary-600 font-semibold py-2 px-4 text-center"
                   >
                     Personalizza
-                  </a>
+                  </Link>
                 </div>
               </div>
 

@@ -1,4 +1,5 @@
 import React, { Component, ErrorInfo, ReactNode } from 'react';
+import Link from 'next/link';
 import { FaExclamationTriangle, FaHome, FaRedo } from 'react-icons/fa';
 
 interface Props {
@@ -51,7 +52,7 @@ class ErrorBoundary extends Component<Props, State> {
 
             {/* Message */}
             <p className="text-lg text-secondary-600 mb-6">
-              Ci scusiamo per l'inconveniente. Qualcosa non ha funzionato come previsto.
+              Ci scusiamo per l&apos;inconveniente. Qualcosa non ha funzionato come previsto.
               Il nostro team è stato notificato e stiamo lavorando per risolvere il problema.
             </p>
 
@@ -73,13 +74,13 @@ class ErrorBoundary extends Component<Props, State> {
                 <FaRedo />
                 Riprova
               </button>
-              <a
+              <Link
                 href="/"
                 className="btn-secondary inline-flex items-center justify-center gap-2"
               >
                 <FaHome />
                 Torna alla Home
-              </a>
+              </Link>
             </div>
 
             {/* Support */}
@@ -97,7 +98,7 @@ class ErrorBoundary extends Component<Props, State> {
                   href="mailto:info@generalbrokers.it"
                   className="text-primary-600 hover:text-primary-700 font-semibold"
                 >
-                  inviaci un'email
+                  inviaci un&apos;email
                 </a>
                 .
               </p>

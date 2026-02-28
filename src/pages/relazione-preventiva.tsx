@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
 import Layout from '@/components/Layout';
 import {
   FaBuilding,
@@ -94,30 +96,35 @@ export default function RelazionePreventiva() {
   };
 
   // Validation
+  const validateContactFields = (): Record<string, string> => {
+    const errors: Record<string, string> = {};
+    if (!formData.nome.trim()) errors.nome = 'Inserisci il nome';
+    if (!formData.cognome.trim()) errors.cognome = 'Inserisci il cognome';
+    if (!formData.email.trim()) errors.email = 'Inserisci l\'email';
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) errors.email = 'Email non valida';
+    if (!formData.telefono.trim()) errors.telefono = 'Inserisci il telefono';
+    else if (!/^[\d\s\+\-\.]{6,20}$/.test(formData.telefono)) errors.telefono = 'Telefono non valido';
+    if (!formData.privacy) errors.privacy = 'Accetta la privacy policy';
+    return errors;
+  };
+
+  const validateStepErrors = (step: number): Record<string, string> => {
+    switch (step) {
+      case 1:
+        return formData.tipoCliente ? {} : { tipoCliente: 'Seleziona il tipo di profilo' };
+      case 2:
+        return formData.esigenza ? {} : { esigenza: 'Seleziona la tua esigenza' };
+      case 3:
+        return (formData.tipoCliente === 'azienda' && !formData.settore) ? { settore: 'Indica il settore' } : {};
+      case 4:
+        return validateContactFields();
+      default:
+        return {};
+    }
+  };
+
   const validateStep = (step: number): boolean => {
-    const newErrors: Record<string, string> = {};
-
-    if (step === 1) {
-      if (!formData.tipoCliente) newErrors.tipoCliente = 'Seleziona il tipo di profilo';
-    }
-    if (step === 2) {
-      if (!formData.esigenza) newErrors.esigenza = 'Seleziona la tua esigenza';
-    }
-    if (step === 3) {
-      if (formData.tipoCliente === 'azienda') {
-        if (!formData.settore) newErrors.settore = 'Indica il settore';
-      }
-    }
-    if (step === 4) {
-      if (!formData.nome.trim()) newErrors.nome = 'Inserisci il nome';
-      if (!formData.cognome.trim()) newErrors.cognome = 'Inserisci il cognome';
-      if (!formData.email.trim()) newErrors.email = 'Inserisci l\'email';
-      else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) newErrors.email = 'Email non valida';
-      if (!formData.telefono.trim()) newErrors.telefono = 'Inserisci il telefono';
-      else if (!/^[\d\s\+\-\.]{6,20}$/.test(formData.telefono)) newErrors.telefono = 'Telefono non valido';
-      if (!formData.privacy) newErrors.privacy = 'Accetta la privacy policy';
-    }
-
+    const newErrors = validateStepErrors(step);
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -136,8 +143,25 @@ export default function RelazionePreventiva() {
     }
   };
 
+  const getTipoLabel = (tipo: string): string => {
+    const labels: Record<string, string> = { azienda: 'Azienda', professionista: 'Professionista' };
+    return labels[tipo] || 'Privato';
+  };
+
+  const buildDetailSection = (): string => {
+    if (formData.tipoCliente === 'azienda') {
+      const fields = [
+        formData.settore && `- Settore: ${formData.settore}`,
+        formData.dipendenti && `- Dipendenti: ${formData.dipendenti}`,
+        formData.fatturato && `- Fatturato: ${formData.fatturato}`,
+        formData.azienda && `- Ragione Sociale: ${formData.azienda}`,
+      ].filter(Boolean);
+      return `DETTAGLI AZIENDA:\n${fields.join('\n')}\n`;
+    }
+    return formData.situazioneFamiliare ? `SITUAZIONE: ${formData.situazioneFamiliare}\n` : '';
+  };
+
   const buildMessage = (): string => {
-    const tipoLabel = formData.tipoCliente === 'azienda' ? 'Azienda' : formData.tipoCliente === 'professionista' ? 'Professionista' : 'Privato';
     const esigenzaLabels: Record<string, string> = {
       'analisi-coperture': 'Analisi coperture attuali',
       'nuovo-preventivo': 'Nuovo preventivo assicurativo',
@@ -145,30 +169,22 @@ export default function RelazionePreventiva() {
       'revisione-polizze': 'Revisione polizze esistenti',
     };
 
-    let msg = `--- RICHIESTA RELAZIONE PREVENTIVA ---\n\n`;
-    msg += `PROFILO: ${tipoLabel}\n`;
-    msg += `ESIGENZA: ${esigenzaLabels[formData.esigenza] || formData.esigenza}\n\n`;
-
-    if (formData.tipoCliente === 'azienda') {
-      msg += `DETTAGLI AZIENDA:\n`;
-      if (formData.settore) msg += `- Settore: ${formData.settore}\n`;
-      if (formData.dipendenti) msg += `- Dipendenti: ${formData.dipendenti}\n`;
-      if (formData.fatturato) msg += `- Fatturato: ${formData.fatturato}\n`;
-      if (formData.azienda) msg += `- Ragione Sociale: ${formData.azienda}\n`;
-    } else {
-      if (formData.situazioneFamiliare) msg += `SITUAZIONE: ${formData.situazioneFamiliare}\n`;
-    }
+    const parts = [
+      `--- RICHIESTA RELAZIONE PREVENTIVA ---\n`,
+      `PROFILO: ${getTipoLabel(formData.tipoCliente)}`,
+      `ESIGENZA: ${esigenzaLabels[formData.esigenza] || formData.esigenza}\n`,
+      buildDetailSection(),
+    ];
 
     if (formData.coperture.length > 0) {
-      msg += `\nCOPERTURE ATTUALI/DI INTERESSE:\n`;
-      formData.coperture.forEach(c => { msg += `- ${c}\n`; });
+      parts.push(`\nCOPERTURE ATTUALI/DI INTERESSE:\n${formData.coperture.map(c => `- ${c}`).join('\n')}`);
     }
 
     if (formData.noteAggiuntive) {
-      msg += `\nNOTE: ${formData.noteAggiuntive}\n`;
+      parts.push(`\nNOTE: ${formData.noteAggiuntive}`);
     }
 
-    return msg;
+    return parts.join('\n');
   };
 
   const handleSubmit = async () => {
@@ -537,9 +553,9 @@ export default function RelazionePreventiva() {
         Grazie per la tua richiesta. Il nostro team ti ricontatter&agrave; entro 24 ore lavorative per procedere con la Relazione Preventiva.
       </p>
       <div className="flex flex-col sm:flex-row gap-3 justify-center">
-        <a href="/" className="inline-flex items-center justify-center gap-2 bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-xl font-semibold transition-colors">
+        <Link href="/" className="inline-flex items-center justify-center gap-2 bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-xl font-semibold transition-colors">
           Torna alla Home
-        </a>
+        </Link>
         <a href="tel:026698.4847" className="inline-flex items-center justify-center gap-2 border-2 border-secondary-200 hover:border-primary-300 text-secondary-700 px-6 py-3 rounded-xl font-semibold transition-colors">
           <FaPhone className="text-sm" /> Chiama: 02 6698.4847
         </a>
@@ -553,20 +569,27 @@ export default function RelazionePreventiva() {
       description="Richiedi una Relazione Preventiva personalizzata. Compila il modulo guidato per ricevere un'analisi gratuita delle tue esigenze assicurative da General Brokers."
       keywords="preventivo assicurativo, relazione preventiva, analisi rischi, richiesta preventivo, broker Milano"
     >
-      {/* Hero compatto */}
-      <section className="bg-gradient-to-br from-primary-700 via-primary-800 to-primary-900 text-white py-12 md:py-16">
-        <div className="container-custom text-center">
-          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-4 border border-white/20">
-            <FaShieldAlt className="text-sm text-primary-200" />
-            <span className="text-sm font-semibold text-primary-100">Servizio Gratuito</span>
-          </div>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-4">
-            Richiedi la Tua Relazione Preventiva
-          </h1>
-          <p className="text-base md:text-lg text-primary-100 max-w-2xl mx-auto">
-            Compila il modulo guidato in pochi passi. Analizzeremo gratuitamente la tua situazione assicurativa e ti ricontatteremo.
-          </p>
+      {/* Hero */}
+      <section className="relative text-white min-h-[600px] md:min-h-[700px] overflow-hidden">
+        <div className="absolute inset-0">
+          <Image src="/images/hero/stazione-centrale-milano.jpg" alt="" fill className="object-cover" />
         </div>
+        <div className="absolute inset-0 bg-black/60" />
+        <div className="container-custom relative z-10 flex items-center min-h-[600px] md:min-h-[700px]">
+          <div className="max-w-3xl py-20 md:py-24">
+            <p className="text-white text-sm font-semibold uppercase tracking-wider mb-4 drop-shadow-[0_1px_3px_rgba(0,0,0,0.4)]">
+              Servizio Gratuito
+            </p>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-6 text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
+              Richiedi la Tua Relazione Preventiva
+            </h1>
+            <div className="w-16 h-[3px] bg-white rounded-full mb-6"></div>
+            <p className="text-lg md:text-xl text-white max-w-2xl drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)]">
+              Compila il modulo guidato in pochi passi. Analizzeremo gratuitamente la tua situazione assicurativa e ti ricontatteremo.
+            </p>
+          </div>
+        </div>
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent z-[2]"></div>
       </section>
 
       {/* Wizard */}
@@ -613,7 +636,7 @@ export default function RelazionePreventiva() {
               </div>
 
               {/* Form Card */}
-              <div className="bg-white rounded-2xl shadow-xl p-6 md:p-10">
+              <div className="bg-white rounded-xl border border-secondary-200 p-6 md:p-10">
                 {currentStep === 1 && renderStep1()}
                 {currentStep === 2 && renderStep2()}
                 {currentStep === 3 && renderStep3()}

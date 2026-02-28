@@ -52,7 +52,7 @@ export default function PrivacyPolicy() {
                 <li><strong>Esecuzione del contratto:</strong> gestione delle polizze assicurative, consulenza e assistenza</li>
                 <li><strong>Obblighi di legge:</strong> adempimenti fiscali, contabili e normativi</li>
                 <li><strong>Gestione sinistri:</strong> liquidazione e gestione delle pratiche</li>
-                <li><strong>Comunicazioni commerciali:</strong> previo consenso specifico dell'interessato</li>
+                <li><strong>Comunicazioni commerciali:</strong> previo consenso specifico dell&apos;interessato</li>
                 <li><strong>Miglioramento dei servizi:</strong> analisi statistiche anonimizzate</li>
               </ul>
             </section>
@@ -61,9 +61,9 @@ export default function PrivacyPolicy() {
               <h2 className="text-2xl font-bold text-secondary-900 mb-4">4. Base Giuridica del Trattamento</h2>
               <p>Il trattamento dei dati personali si basa su:</p>
               <ul className="list-disc pl-6">
-                <li>Esecuzione di un contratto di cui l'interessato è parte</li>
+                <li>Esecuzione di un contratto di cui l&apos;interessato &egrave; parte</li>
                 <li>Adempimento di obblighi di legge</li>
-                <li>Consenso esplicito dell'interessato (per finalità specifiche)</li>
+                <li>Consenso esplicito dell&apos;interessato (per finalit&agrave; specifiche)</li>
                 <li>Legittimo interesse del Titolare</li>
               </ul>
             </section>
@@ -95,14 +95,14 @@ export default function PrivacyPolicy() {
             <section>
               <h2 className="text-2xl font-bold text-secondary-900 mb-4">7. Periodo di Conservazione</h2>
               <p>
-                I dati personali saranno conservati per il tempo necessario al perseguimento delle finalità per cui sono stati raccolti e, in ogni caso, nel rispetto dei termini di legge (generalmente 10 anni per le pratiche assicurative).
+                I dati personali saranno conservati per il tempo necessario al perseguimento delle finalit&agrave; per cui sono stati raccolti e, in ogni caso, nel rispetto dei termini di legge (generalmente 10 anni per le pratiche assicurative).
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-secondary-900 mb-4">8. Diritti dell'Interessato</h2>
+              <h2 className="text-2xl font-bold text-secondary-900 mb-4">8. Diritti dell&apos;Interessato</h2>
               <p>
-                L'interessato ha il diritto di:
+                L&apos;interessato ha il diritto di:
               </p>
               <ul className="list-disc pl-6">
                 <li>Accedere ai propri dati personali</li>
@@ -111,10 +111,10 @@ export default function PrivacyPolicy() {
                 <li>Opporsi al trattamento</li>
                 <li>Richiedere la portabilità dei dati</li>
                 <li>Revocare il consenso in qualsiasi momento</li>
-                <li>Proporre reclamo all'Autorità Garante per la Protezione dei Dati Personali</li>
+                <li>Proporre reclamo all&apos;Autorit&agrave; Garante per la Protezione dei Dati Personali</li>
               </ul>
               <p>
-                Per esercitare tali diritti, è possibile contattare il Titolare ai recapiti indicati al punto 1.
+                Per esercitare tali diritti, &egrave; possibile contattare il Titolare ai recapiti indicati al punto 1.
               </p>
             </section>
 

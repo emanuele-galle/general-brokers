@@ -1,10 +1,11 @@
 import { useState } from 'react';
+import Link from 'next/link';
 import Layout from '@/components/Layout';
-import Image from 'next/image';
 import ServiceModal from '@/components/ServiceModal';
+import GenericHero from '@/components/GenericHero';
 import CTASection from '@/components/CTASection';
 import { servicesData } from '@/data/servicesData';
-import { FaArrowRight } from 'react-icons/fa';
+import { FaArrowRight, FaCheckCircle } from 'react-icons/fa';
 
 export default function Servizi() {
   const [selectedService, setSelectedService] = useState<number | null>(null);
@@ -15,41 +16,22 @@ export default function Servizi() {
       description="Scopri tutti i servizi di General Brokers: gestione polizze, sinistri, consulenza rischi, assicurazioni aziendali e per privati. Soluzioni personalizzate a Milano."
       keywords="servizi assicurativi Milano, gestione polizze, gestione sinistri, consulenza rischi, assicurazioni aziendali, assicurazioni privati"
     >
-      {/* Hero Section */}
-      <section className="relative text-white py-12 md:py-16 lg:py-20 overflow-hidden">
-        {/* Background Image with Overlay */}
-        <div className="absolute inset-0">
-          <Image
-            src="/images/hero/office-2.jpg"
-            alt="Ufficio General Brokers - Servizi Assicurativi"
-            fill
-            className="object-cover object-center"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary-900/95 via-primary-800/90 to-primary-700/85"></div>
-        </div>
-
-        <div className="container-custom relative z-10">
-          <div className="max-w-3xl px-4">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-4 md:mb-6">I Nostri Servizi</h1>
-            <p className="text-lg md:text-xl text-primary-50">
-              Soluzioni assicurative complete per aziende e privati. Dalla consulenza alla gestione sinistri, siamo al tuo fianco in ogni momento.
-            </p>
-          </div>
-        </div>
-      </section>
+      <GenericHero
+        title="I Nostri Servizi"
+        description="Soluzioni assicurative complete per aziende e privati. Dalla consulenza alla gestione sinistri, siamo al tuo fianco in ogni momento."
+      />
 
       {/* Services Grid */}
-      <section className="section-padding bg-white">
+      <section className="py-20 md:py-28 bg-white">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-8">
             {servicesData.map((service, index) => {
               const IconComponent = service.icon;
               return (
-                <div key={service.id} className="card">
+                <div key={service.id} className="border border-secondary-200 rounded-xl p-8">
                   <div className="flex items-start gap-4 mb-6">
-                    <div className="w-14 h-14 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <IconComponent className="text-2xl text-primary-600" />
+                    <div className="w-12 h-12 bg-primary-50 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <IconComponent className="text-xl text-primary-600" />
                     </div>
                     <div>
                       <h2 className="text-2xl font-heading font-bold mb-2">{service.title}</h2>
@@ -58,11 +40,10 @@ export default function Servizi() {
                   </div>
 
                   <div className="mb-6">
-                    <h3 className="font-semibold mb-3 text-secondary-900">Vantaggi principali:</h3>
                     <ul className="space-y-2">
-                      {service.benefits.slice(0, 5).map((benefit, idx) => (
-                        <li key={idx} className="flex items-start gap-2">
-                          <span className="text-primary-600 mt-1">•</span>
+                      {service.benefits.slice(0, 4).map((benefit, idx) => (
+                        <li key={idx} className="flex items-start gap-2 text-sm">
+                          <FaCheckCircle className="text-primary-600 mt-0.5 flex-shrink-0 text-xs" />
                           <span className="text-secondary-700">{benefit}</span>
                         </li>
                       ))}
@@ -73,7 +54,7 @@ export default function Servizi() {
                     onClick={() => setSelectedService(index)}
                     className="text-primary-600 hover:text-primary-700 font-semibold inline-flex items-center gap-2 group"
                   >
-                    Scopri di più
+                    Scopri di pi&ugrave;
                     <FaArrowRight className="text-sm group-hover:translate-x-1 transition-transform" />
                   </button>
                 </div>
@@ -82,18 +63,18 @@ export default function Servizi() {
           </div>
 
           {/* CTA Richiedi Preventivo */}
-          <div className="mt-12 bg-gradient-to-r from-primary-50 to-white border-2 border-primary-100 rounded-2xl p-8 md:p-10 text-center">
+          <div className="mt-16 border border-secondary-200 rounded-xl p-8 md:p-10 text-center">
             <h3 className="text-2xl font-heading font-bold text-secondary-900 mb-3">Richiedi Preventivo</h3>
             <p className="text-secondary-600 mb-6 max-w-2xl mx-auto">
-              Contattaci per un preventivo gratuito e personalizzato. Analizzeremo le tue esigenze per trovare la soluzione assicurativa migliore.
+              Contattaci per un preventivo gratuito e personalizzato.
             </p>
-            <a
+            <Link
               href="/contatti"
               className="btn-primary inline-flex items-center gap-2"
             >
               Richiedi Preventivo Gratuito
               <FaArrowRight />
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -117,7 +98,7 @@ export default function Servizi() {
       })}
 
       {/* Process Section */}
-      <section className="section-padding bg-secondary-50">
+      <section className="py-20 md:py-28 bg-secondary-50">
         <div className="container-custom">
           <div className="text-center mb-12">
             <h2 className="section-title">Come Lavoriamo</h2>
@@ -128,45 +109,20 @@ export default function Servizi() {
 
           <div className="max-w-4xl mx-auto">
             <div className="grid md:grid-cols-4 gap-8">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-primary-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
-                  1
+              {[
+                { num: '1', title: 'Analisi', desc: 'Ascoltiamo le tue esigenze e analizziamo la tua situazione' },
+                { num: '2', title: 'Ricerca', desc: 'Confrontiamo le offerte sul mercato per trovare le migliori soluzioni' },
+                { num: '3', title: 'Proposta', desc: 'Ti presentiamo soluzioni personalizzate con informazioni chiare' },
+                { num: '4', title: 'Assistenza', desc: 'Ti supportiamo nel tempo con gestione e consulenza continua' },
+              ].map((step) => (
+                <div key={step.num} className="text-center">
+                  <div className="w-14 h-14 bg-primary-600 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">
+                    {step.num}
+                  </div>
+                  <h3 className="font-heading font-bold mb-2">{step.title}</h3>
+                  <p className="text-sm text-secondary-600">{step.desc}</p>
                 </div>
-                <h3 className="font-bold mb-2">Analisi</h3>
-                <p className="text-sm text-secondary-600">
-                  Ascoltiamo le tue esigenze e analizziamo la tua situazione
-                </p>
-              </div>
-
-              <div className="text-center">
-                <div className="w-16 h-16 bg-primary-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
-                  2
-                </div>
-                <h3 className="font-bold mb-2">Ricerca</h3>
-                <p className="text-sm text-secondary-600">
-                  Confrontiamo le offerte sul mercato per trovare le migliori soluzioni
-                </p>
-              </div>
-
-              <div className="text-center">
-                <div className="w-16 h-16 bg-primary-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
-                  3
-                </div>
-                <h3 className="font-bold mb-2">Proposta</h3>
-                <p className="text-sm text-secondary-600">
-                  Ti presentiamo soluzioni personalizzate con informazioni chiare
-                </p>
-              </div>
-
-              <div className="text-center">
-                <div className="w-16 h-16 bg-primary-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
-                  4
-                </div>
-                <h3 className="font-bold mb-2">Assistenza</h3>
-                <p className="text-sm text-secondary-600">
-                  Ti supportiamo nel tempo con gestione e consulenza continua
-                </p>
-              </div>
+              ))}
             </div>
           </div>
         </div>
@@ -174,9 +130,8 @@ export default function Servizi() {
 
       {/* CTA Section */}
       <CTASection
-        variant="custom"
-        title="Hai bisogno di una consulenza?"
-        description="I nostri esperti sono pronti ad aiutarti a trovare la soluzione assicurativa più adatta alle tue esigenze."
+        variant="consultation"
+        theme="dark"
       />
     </Layout>
   );

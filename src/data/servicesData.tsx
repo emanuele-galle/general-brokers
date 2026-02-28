@@ -1,3 +1,4 @@
+import { IconType } from 'react-icons';
 import {
   FaFileContract,
   FaShieldAlt,
@@ -8,9 +9,9 @@ import {
   FaCogs,
 } from 'react-icons/fa';
 
-export interface ServiceData {
+interface ServiceData {
   id: string;
-  icon: any;
+  icon: IconType;
   title: string;
   shortDescription: string;
   description: string;

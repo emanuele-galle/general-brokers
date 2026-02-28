@@ -1,4 +1,5 @@
 import Layout from '@/components/Layout';
+import Link from 'next/link';
 import { FaHome, FaPhone, FaArrowLeft } from 'react-icons/fa';
 
 export default function Custom404() {
@@ -31,20 +32,20 @@ export default function Custom404() {
 
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <a
+              <Link
                 href="/"
                 className="btn-primary inline-flex items-center justify-center gap-2"
               >
                 <FaHome />
                 Torna alla Home
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/contatti"
                 className="btn-secondary inline-flex items-center justify-center gap-2"
               >
                 <FaPhone />
                 Contattaci
-              </a>
+              </Link>
             </div>
 
             {/* Quick Links */}
@@ -53,34 +54,34 @@ export default function Custom404() {
                 Link Utili
               </h3>
               <div className="grid sm:grid-cols-2 gap-4 text-left">
-                <a
+                <Link
                   href="/chi-siamo"
                   className="flex items-center gap-2 text-secondary-700 hover:text-primary-600 transition-colors"
                 >
                   <FaArrowLeft className="text-sm text-primary-600" />
                   Chi Siamo
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/servizi"
                   className="flex items-center gap-2 text-secondary-700 hover:text-primary-600 transition-colors"
                 >
                   <FaArrowLeft className="text-sm text-primary-600" />
                   Servizi
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/contatti"
                   className="flex items-center gap-2 text-secondary-700 hover:text-primary-600 transition-colors"
                 >
                   <FaArrowLeft className="text-sm text-primary-600" />
                   Contatti
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/privacy-policy"
                   className="flex items-center gap-2 text-secondary-700 hover:text-primary-600 transition-colors"
                 >
                   <FaArrowLeft className="text-sm text-primary-600" />
                   Privacy Policy
-                </a>
+                </Link>
               </div>
             </div>
 

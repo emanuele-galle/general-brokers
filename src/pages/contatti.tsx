@@ -1,6 +1,7 @@
 import Layout from '@/components/Layout';
-import Image from 'next/image';
-import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import GenericHero from '@/components/GenericHero';
+import { useState } from 'react';
 import {
   FaPhone,
   FaEnvelope,
@@ -118,47 +119,23 @@ export default function Contatti() {
       description="Contatta General Brokers per una consulenza assicurativa gratuita. Siamo a Milano in Via Tonale 20. Tel: 02 6698.4847 - Email: info@generalbrokers.it"
       keywords="contatti General Brokers, broker assicurativo Milano, consulenza gratuita, Via Tonale Milano"
     >
-      {/* Hero Section */}
-      <section className="relative text-white py-12 md:py-16 overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/hero/office-3.jpg"
-            alt="Ufficio General Brokers - Contatti"
-            fill
-            className="object-cover object-center"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary-900/95 via-primary-800/90 to-primary-700/85"></div>
-        </div>
-
-        <div className="container-custom relative z-10">
-          <div className="max-w-3xl px-4">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-4">
-              Contattaci
-            </h1>
-            <p className="text-lg md:text-xl text-primary-50">
-              Consulenza gratuita e personalizzata. Rispondiamo entro 24 ore.
-            </p>
-          </div>
-        </div>
-      </section>
+      <GenericHero
+        title="Contattaci"
+        description="Consulenza gratuita e personalizzata. Rispondiamo entro 24 ore."
+      />
 
       {/* Contact Info + Form */}
-      <section className="section-padding bg-white">
+      <section className="py-20 md:py-28 bg-white">
         <div className="container-custom">
           <div className="grid lg:grid-cols-5 gap-12">
 
-            {/* Sidebar Info - 2 colonne */}
+            {/* Sidebar Info */}
             <div className="lg:col-span-2 space-y-6">
-
-              {/* Recapiti */}
               <div className="space-y-5">
                 <h2 className="text-2xl font-heading font-bold text-secondary-900">I Nostri Recapiti</h2>
 
                 <div className="flex gap-4 items-start">
-                  <div className="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <FaPhone className="text-primary-600" />
-                  </div>
+                  <FaPhone className="text-primary-600 mt-1 flex-shrink-0" />
                   <div>
                     <div className="font-semibold text-secondary-900">Telefono</div>
                     <a href="tel:026698.4847" className="text-primary-600 hover:text-primary-700 font-medium">
@@ -168,9 +145,7 @@ export default function Contatti() {
                 </div>
 
                 <div className="flex gap-4 items-start">
-                  <div className="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <FaEnvelope className="text-primary-600" />
-                  </div>
+                  <FaEnvelope className="text-primary-600 mt-1 flex-shrink-0" />
                   <div>
                     <div className="font-semibold text-secondary-900">Email</div>
                     <a href="mailto:info@generalbrokers.it" className="text-primary-600 hover:text-primary-700 font-medium">
@@ -180,9 +155,7 @@ export default function Contatti() {
                 </div>
 
                 <div className="flex gap-4 items-start">
-                  <div className="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <FaCertificate className="text-primary-600" />
-                  </div>
+                  <FaCertificate className="text-primary-600 mt-1 flex-shrink-0" />
                   <div>
                     <div className="font-semibold text-secondary-900">PEC</div>
                     <a href="mailto:info@pec.generalbrokers.it" className="text-primary-600 hover:text-primary-700 font-medium text-sm">
@@ -192,9 +165,7 @@ export default function Contatti() {
                 </div>
 
                 <div className="flex gap-4 items-start">
-                  <div className="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <FaMapMarkerAlt className="text-primary-600" />
-                  </div>
+                  <FaMapMarkerAlt className="text-primary-600 mt-1 flex-shrink-0" />
                   <div>
                     <div className="font-semibold text-secondary-900">Sede</div>
                     <p className="text-secondary-700 text-sm">
@@ -205,9 +176,7 @@ export default function Contatti() {
                 </div>
 
                 <div className="flex gap-4 items-start">
-                  <div className="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <FaClock className="text-primary-600" />
-                  </div>
+                  <FaClock className="text-primary-600 mt-1 flex-shrink-0" />
                   <div>
                     <div className="font-semibold text-secondary-900">Orari</div>
                     <p className="text-secondary-700 text-sm">
@@ -219,7 +188,7 @@ export default function Contatti() {
               </div>
 
               {/* Map */}
-              <div className="rounded-xl overflow-hidden shadow-md h-56">
+              <div className="rounded-xl overflow-hidden h-56 border border-secondary-200">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2797.8644876288344!2d9.203828!3d45.4773!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4786c6c4b5555555%3A0x6666666666666666!2sVia%20Tonale%2C%2020%2C%2020125%20Milano%20MI!5e0!3m2!1sit!2sit!4v1234567890"
                   width="100%"
@@ -233,7 +202,7 @@ export default function Contatti() {
               </div>
             </div>
 
-            {/* Contact Form - 3 colonne */}
+            {/* Contact Form */}
             <div className="lg:col-span-3">
               <h2 className="text-2xl font-heading font-bold mb-2">
                 Scrivici
@@ -243,118 +212,83 @@ export default function Contatti() {
               </p>
 
               <form onSubmit={handleSubmit} className="space-y-5">
-                {/* Nome e Cognome */}
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="nome" className="block text-sm font-semibold mb-2 text-secondary-800">
                       Nome *
                     </label>
                     <input
-                      type="text"
-                      id="nome"
-                      name="nome"
-                      value={formData.nome}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
+                      type="text" id="nome" name="nome"
+                      value={formData.nome} onChange={handleChange} onBlur={handleBlur}
                       required
                       className={`input-field ${errors.nome && touched.nome ? 'border-red-500' : ''}`}
                       placeholder="Mario"
                     />
-                    {errors.nome && touched.nome && (
-                      <p className="text-red-500 text-xs mt-1">{errors.nome}</p>
-                    )}
+                    {errors.nome && touched.nome && <p className="text-red-500 text-xs mt-1">{errors.nome}</p>}
                   </div>
                   <div>
                     <label htmlFor="cognome" className="block text-sm font-semibold mb-2 text-secondary-800">
                       Cognome *
                     </label>
                     <input
-                      type="text"
-                      id="cognome"
-                      name="cognome"
-                      value={formData.cognome}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
+                      type="text" id="cognome" name="cognome"
+                      value={formData.cognome} onChange={handleChange} onBlur={handleBlur}
                       required
                       className={`input-field ${errors.cognome && touched.cognome ? 'border-red-500' : ''}`}
                       placeholder="Rossi"
                     />
-                    {errors.cognome && touched.cognome && (
-                      <p className="text-red-500 text-xs mt-1">{errors.cognome}</p>
-                    )}
+                    {errors.cognome && touched.cognome && <p className="text-red-500 text-xs mt-1">{errors.cognome}</p>}
                   </div>
                 </div>
 
-                {/* Email e Telefono */}
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="email" className="block text-sm font-semibold mb-2 text-secondary-800">
                       Email *
                     </label>
                     <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
+                      type="email" id="email" name="email"
+                      value={formData.email} onChange={handleChange} onBlur={handleBlur}
                       required
                       className={`input-field ${errors.email && touched.email ? 'border-red-500' : ''}`}
                       placeholder="mario.rossi@email.it"
                     />
-                    {errors.email && touched.email && (
-                      <p className="text-red-500 text-xs mt-1">{errors.email}</p>
-                    )}
+                    {errors.email && touched.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
                   </div>
                   <div>
                     <label htmlFor="telefono" className="block text-sm font-semibold mb-2 text-secondary-800">
                       Telefono *
                     </label>
                     <input
-                      type="tel"
-                      id="telefono"
-                      name="telefono"
-                      value={formData.telefono}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
+                      type="tel" id="telefono" name="telefono"
+                      value={formData.telefono} onChange={handleChange} onBlur={handleBlur}
                       required
                       className={`input-field ${errors.telefono && touched.telefono ? 'border-red-500' : ''}`}
                       placeholder="333 123 4567"
                     />
-                    {errors.telefono && touched.telefono && (
-                      <p className="text-red-500 text-xs mt-1">{errors.telefono}</p>
-                    )}
+                    {errors.telefono && touched.telefono && <p className="text-red-500 text-xs mt-1">{errors.telefono}</p>}
                   </div>
                 </div>
 
-                {/* Azienda */}
                 <div>
                   <label htmlFor="azienda" className="block text-sm font-semibold mb-2 text-secondary-800">
                     Azienda <span className="text-secondary-500 font-normal">(opzionale)</span>
                   </label>
                   <input
-                    type="text"
-                    id="azienda"
-                    name="azienda"
-                    value={formData.azienda}
-                    onChange={handleChange}
-                    className="input-field"
-                    placeholder="Nome azienda"
+                    type="text" id="azienda" name="azienda"
+                    value={formData.azienda} onChange={handleChange}
+                    className="input-field" placeholder="Nome azienda"
                   />
                 </div>
 
-                {/* Tipo Richiesta */}
                 <div>
                   <label htmlFor="tipoRichiesta" className="block text-sm font-semibold mb-2 text-secondary-800">
                     Tipo di Richiesta *
                   </label>
                   <select
-                    id="tipoRichiesta"
-                    name="tipoRichiesta"
-                    value={formData.tipoRichiesta}
-                    onChange={handleChange}
-                    required
-                    className="input-field"
+                    id="tipoRichiesta" name="tipoRichiesta"
+                    value={formData.tipoRichiesta} onChange={handleChange}
+                    required className="input-field"
                   >
                     <option value="">Seleziona...</option>
                     <option value="preventivo">Richiesta Preventivo</option>
@@ -367,49 +301,35 @@ export default function Contatti() {
                   </select>
                 </div>
 
-                {/* Messaggio */}
                 <div>
                   <label htmlFor="messaggio" className="block text-sm font-semibold mb-2 text-secondary-800">
                     Messaggio *
                   </label>
                   <textarea
-                    id="messaggio"
-                    name="messaggio"
-                    value={formData.messaggio}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    required
-                    rows={5}
-                    maxLength={1000}
+                    id="messaggio" name="messaggio"
+                    value={formData.messaggio} onChange={handleChange} onBlur={handleBlur}
+                    required rows={5} maxLength={1000}
                     className={`input-field resize-none ${errors.messaggio && touched.messaggio ? 'border-red-500' : ''}`}
                     placeholder="Descrivi brevemente la tua richiesta..."
                   ></textarea>
-                  {errors.messaggio && touched.messaggio && (
-                    <p className="text-red-500 text-xs mt-1">{errors.messaggio}</p>
-                  )}
+                  {errors.messaggio && touched.messaggio && <p className="text-red-500 text-xs mt-1">{errors.messaggio}</p>}
                 </div>
 
-                {/* Privacy */}
                 <div className="flex items-start gap-3 bg-secondary-50 p-4 rounded-lg">
                   <input
-                    type="checkbox"
-                    id="privacy"
-                    name="privacy"
-                    checked={formData.privacy}
-                    onChange={handleChange}
-                    required
-                    className="mt-1 w-5 h-5"
+                    type="checkbox" id="privacy" name="privacy"
+                    checked={formData.privacy} onChange={handleChange}
+                    required className="mt-1 w-5 h-5"
                   />
                   <label htmlFor="privacy" className="text-sm text-secondary-700">
                     Ho letto e accetto la{' '}
-                    <a href="/privacy-policy" className="text-primary-600 hover:text-primary-700 underline font-semibold">
+                    <Link href="/privacy-policy" className="text-primary-600 hover:text-primary-700 underline font-semibold">
                       Privacy Policy
-                    </a>{' '}
+                    </Link>{' '}
                     e acconsento al trattamento dei miei dati personali *
                   </label>
                 </div>
 
-                {/* Success/Error Messages */}
                 {formStatus === 'success' && (
                   <div className="bg-green-50 border border-green-200 text-green-800 px-5 py-4 rounded-lg flex items-start gap-3">
                     <FaCheckCircle className="text-xl flex-shrink-0 mt-0.5" />
@@ -430,7 +350,6 @@ export default function Contatti() {
                   </div>
                 )}
 
-                {/* Submit */}
                 <button
                   type="submit"
                   disabled={formStatus === 'sending'}

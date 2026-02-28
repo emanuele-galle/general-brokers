@@ -19,7 +19,7 @@ export default function CookiePolicy() {
             <section>
               <h2 className="text-2xl font-bold text-secondary-900 mb-4">1. Cosa sono i Cookie</h2>
               <p>
-                I cookie sono piccoli file di testo che vengono memorizzati sul dispositivo dell'utente quando visita un sito web. I cookie permettono al sito di riconoscere il dispositivo dell'utente e memorizzare alcune informazioni sulle sue preferenze o azioni passate.
+                I cookie sono piccoli file di testo che vengono memorizzati sul dispositivo dell&apos;utente quando visita un sito web. I cookie permettono al sito di riconoscere il dispositivo dell&apos;utente e memorizzare alcune informazioni sulle sue preferenze o azioni passate.
               </p>
             </section>
 
@@ -28,15 +28,15 @@ export default function CookiePolicy() {
 
               <h3 className="text-xl font-semibold text-secondary-900 mb-3">2.1 Cookie Tecnici</h3>
               <p>
-                Questi cookie sono essenziali per il corretto funzionamento del sito e non possono essere disabilitati. Sono generalmente impostati solo in risposta ad azioni da te effettuate che costituiscono una richiesta di servizi, come l'impostazione delle tue preferenze di privacy, l'accesso o la compilazione di moduli.
+                Questi cookie sono essenziali per il corretto funzionamento del sito e non possono essere disabilitati. Sono generalmente impostati solo in risposta ad azioni da te effettuate che costituiscono una richiesta di servizi, come l&apos;impostazione delle tue preferenze di privacy, l&apos;accesso o la compilazione di moduli.
               </p>
 
               <h3 className="text-xl font-semibold text-secondary-900 mb-3 mt-4">2.2 Cookie Analitici</h3>
               <p>
-                Questi cookie ci permettono di contare le visite e le fonti di traffico, in modo da poter misurare e migliorare le prestazioni del nostro sito. Ci aiutano a capire quali sono le pagine più e meno popolari e come i visitatori si muovono all'interno del sito.
+                Questi cookie ci permettono di contare le visite e le fonti di traffico, in modo da poter misurare e migliorare le prestazioni del nostro sito. Ci aiutano a capire quali sono le pagine pi&ugrave; e meno popolari e come i visitatori si muovono all&apos;interno del sito.
               </p>
               <p>
-                Utilizziamo Google Analytics per analizzare l'utilizzo del sito. Le informazioni generate dal cookie sull'utilizzo del sito web vengono trasmesse a Google e archiviate sui suoi server.
+                Utilizziamo Google Analytics per analizzare l&apos;utilizzo del sito. Le informazioni generate dal cookie sull&apos;utilizzo del sito web vengono trasmesse a Google e archiviate sui suoi server.
               </p>
 
               <h3 className="text-xl font-semibold text-secondary-900 mb-3 mt-4">2.3 Cookie di Profilazione</h3>
@@ -48,11 +48,11 @@ export default function CookiePolicy() {
             <section>
               <h2 className="text-2xl font-bold text-secondary-900 mb-4">3. Cookie di Terze Parti</h2>
               <p>
-                Il nostro sito potrebbe contenere collegamenti a siti web di terze parti. Non abbiamo alcun controllo sui cookie utilizzati da questi siti web e, per ulteriori informazioni sull'utilizzo dei cookie da parte loro, si consiglia di consultare le rispettive policy.
+                Il nostro sito potrebbe contenere collegamenti a siti web di terze parti. Non abbiamo alcun controllo sui cookie utilizzati da questi siti web e, per ulteriori informazioni sull&apos;utilizzo dei cookie da parte loro, si consiglia di consultare le rispettive policy.
               </p>
               <p className="mt-3">Servizi di terze parti utilizzati:</p>
               <ul className="list-disc pl-6">
-                <li><strong>Google Analytics:</strong> per l'analisi del traffico web</li>
+                <li><strong>Google Analytics:</strong> per l&apos;analisi del traffico web</li>
                 <li><strong>Google Maps:</strong> per la visualizzazione delle mappe nella pagina contatti</li>
               </ul>
             </section>
