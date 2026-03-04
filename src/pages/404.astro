@@ -1,0 +1,67 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/layout/Header.astro';
+import Footer from '@/components/layout/Footer.astro';
+import CookieConsent from '@/components/islands/CookieConsent.tsx';
+import { Icon } from 'astro-icon/components';
+---
+
+<BaseLayout
+  title="Pagina Non Trovata - General Brokers Srl"
+  description="La pagina che stai cercando non esiste o è stata spostata."
+>
+  <div class="flex min-h-screen">
+    <Header />
+    <div class="flex flex-col flex-1 lg:ml-72">
+      <main class="flex-grow flex items-center justify-center py-20">
+        <div class="text-center px-6">
+          <div class="w-24 h-24 bg-primary-50 rounded-full flex items-center justify-center mx-auto mb-8">
+            <Icon name="lucide:search-x" class="w-12 h-12 text-primary-600" />
+          </div>
+          <h1 class="font-heading text-6xl md:text-8xl font-bold text-primary-600 mb-4">404</h1>
+          <h2 class="font-heading text-2xl md:text-3xl font-bold text-secondary-900 mb-4">
+            Pagina Non Trovata
+          </h2>
+          <p class="text-secondary-600 text-lg mb-8 max-w-md mx-auto">
+            La pagina che stai cercando non esiste o è stata spostata. Torna alla homepage o utilizza il menu di navigazione.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+            <a href="/" class="btn-primary inline-flex items-center gap-2">
+              <Icon name="lucide:home" class="w-4 h-4" />
+              Torna alla Homepage
+            </a>
+            <a href="/contatti" class="btn-outline inline-flex items-center gap-2 border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white">
+              <Icon name="lucide:mail" class="w-4 h-4" />
+              Contattaci
+            </a>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="bg-secondary-50 rounded-xl p-6 max-w-lg mx-auto">
+            <h3 class="text-sm font-bold text-secondary-900 uppercase tracking-wider mb-4">Link Utili</h3>
+            <div class="grid grid-cols-2 gap-2">
+              {[
+                { label: 'Servizi', href: '/servizi', icon: 'lucide:thumbs-up' },
+                { label: 'Preventivo', href: '/relazione-preventiva', icon: 'lucide:file-text' },
+                { label: 'Chi Siamo', href: '/chi-siamo', icon: 'lucide:book-open' },
+                { label: 'Sinistro', href: '/denuncia-sinistro', icon: 'lucide:alert-triangle' },
+                { label: 'Modulistica', href: '/modulistica', icon: 'lucide:download' },
+                { label: 'Lavora Con Noi', href: '/lavora-con-noi', icon: 'lucide:briefcase' },
+              ].map((link) => (
+                <a
+                  href={link.href}
+                  class="flex items-center gap-2 px-3 py-2.5 rounded-lg text-secondary-600 hover:bg-white hover:text-primary-600 hover:shadow-sm transition-all text-sm"
+                >
+                  <Icon name={link.icon} class="w-4 h-4 shrink-0" />
+                  <span>{link.label}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </main>
+      <Footer />
+      <CookieConsent client:idle />
+    </div>
+  </div>
+</BaseLayout>

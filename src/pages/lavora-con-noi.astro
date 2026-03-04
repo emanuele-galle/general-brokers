@@ -1,0 +1,107 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/layout/Header.astro';
+import Footer from '@/components/layout/Footer.astro';
+import GenericHero from '@/components/sections/GenericHero.astro';
+import CTASection from '@/components/sections/CTASection.astro';
+import CookieConsent from '@/components/islands/CookieConsent.tsx';
+import { Icon } from 'astro-icon/components';
+import { contactInfo } from '@/data/contact';
+import { yearsOfExperience } from '@/data/company';
+---
+
+<BaseLayout
+  title="Lavora Con Noi - General Brokers Srl | Carriere nel Brokeraggio Assicurativo"
+  description="Unisciti al team di General Brokers. Scopri le opportunità di carriera nel brokeraggio assicurativo a Milano."
+>
+  <div class="flex min-h-screen">
+    <Header />
+    <div class="flex flex-col flex-1 lg:ml-72">
+      <main class="flex-grow">
+        <GenericHero
+          title="Lavora Con Noi"
+          subtitle="CARRIERE"
+          description="Unisciti al nostro team di professionisti del brokeraggio assicurativo. Cerchiamo persone motivate e appassionate."
+        />
+
+        <!-- Why Work With Us -->
+        <section class="section-padding bg-white">
+          <div class="container-custom">
+            <div class="text-center mb-12">
+              <p class="text-primary-600 font-semibold text-sm uppercase tracking-wider mb-3">Perché General Brokers</p>
+              <h2 class="section-title">Un Ambiente di Lavoro Unico</h2>
+              <p class="section-subtitle mt-4">
+                Entrare in General Brokers significa far parte di un team con oltre {yearsOfExperience} anni di esperienza, in un contesto dinamico e stimolante.
+              </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                { icon: 'lucide:graduation-cap', title: 'Formazione Continua', description: 'Investiamo nella crescita professionale con corsi di aggiornamento e certificazioni del settore assicurativo.' },
+                { icon: 'lucide:users', title: 'Team Collaborativo', description: 'Un ambiente di lavoro basato sulla collaborazione, il rispetto e la condivisione delle competenze.' },
+                { icon: 'lucide:trending-up', title: 'Crescita Professionale', description: 'Percorsi di carriera chiari e meritocratici, con opportunità di sviluppo in diversi ambiti del brokeraggio.' },
+                { icon: 'lucide:heart', title: 'Work-Life Balance', description: 'Crediamo nell\'equilibrio tra vita professionale e personale come base per un lavoro di qualità.' },
+                { icon: 'lucide:map-pin', title: 'Posizione Centrale', description: 'Il nostro ufficio è nel cuore di Milano, facilmente raggiungibile con i mezzi pubblici.' },
+                { icon: 'lucide:shield-check', title: 'Stabilità e Solidità', description: 'Un\'azienda con radici solide e una reputazione consolidata nel mercato assicurativo italiano.' },
+              ].map((item) => (
+                <div class="card">
+                  <div class="w-12 h-12 bg-primary-50 rounded-lg flex items-center justify-center mb-4">
+                    <Icon name={item.icon} class="w-6 h-6 text-primary-600" />
+                  </div>
+                  <h3 class="text-lg font-bold text-secondary-900 font-heading mb-2">{item.title}</h3>
+                  <p class="text-secondary-600 text-sm leading-relaxed">{item.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <!-- Open Positions -->
+        <section class="section-padding bg-secondary-50">
+          <div class="container-custom max-w-3xl">
+            <div class="text-center mb-12">
+              <p class="text-primary-600 font-semibold text-sm uppercase tracking-wider mb-3">Posizioni Aperte</p>
+              <h2 class="section-title">Opportunità Attuali</h2>
+            </div>
+
+            <div class="bg-white rounded-xl border border-secondary-200 p-8 text-center">
+              <div class="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Icon name="lucide:search" class="w-8 h-8 text-secondary-400" />
+              </div>
+              <h3 class="text-lg font-bold text-secondary-900 font-heading mb-2">
+                Nessuna posizione aperta al momento
+              </h3>
+              <p class="text-secondary-600 text-sm leading-relaxed mb-6 max-w-md mx-auto">
+                Al momento non ci sono posizioni aperte, ma siamo sempre interessati a conoscere talenti motivati. Inviaci la tua candidatura spontanea!
+              </p>
+              <a
+                href={`mailto:${contactInfo.email.general}?subject=Candidatura%20Spontanea%20-%20General%20Brokers`}
+                class="btn-primary inline-flex items-center gap-2"
+              >
+                <Icon name="lucide:send" class="w-4 h-4" />
+                Candidatura Spontanea
+              </a>
+            </div>
+
+            <div class="mt-8 bg-primary-50 border border-primary-100 rounded-xl p-6">
+              <div class="flex items-start gap-4">
+                <Icon name="lucide:mail" class="w-5 h-5 text-primary-600 shrink-0 mt-0.5" />
+                <div>
+                  <h3 class="font-bold text-secondary-900 font-heading mb-1">Come candidarsi</h3>
+                  <p class="text-secondary-600 text-sm leading-relaxed">
+                    Invia il tuo CV e una lettera di presentazione a
+                    <a href={`mailto:${contactInfo.email.general}`} class="text-primary-600 font-medium hover:underline"> {contactInfo.email.general}</a>.
+                    Indica nell'oggetto "Candidatura Spontanea" e le aree di competenza di tuo interesse.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <CTASection variant="default" theme="dark" />
+      </main>
+      <Footer />
+      <CookieConsent client:idle />
+    </div>
+  </div>
+</BaseLayout>

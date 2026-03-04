@@ -1,0 +1,178 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/layout/Header.astro';
+import Footer from '@/components/layout/Footer.astro';
+import GenericHero from '@/components/sections/GenericHero.astro';
+import CTASection from '@/components/sections/CTASection.astro';
+import CookieConsent from '@/components/islands/CookieConsent.tsx';
+import { Icon } from 'astro-icon/components';
+import { legalInfo, contactInfo } from '@/data/contact';
+---
+
+<BaseLayout
+  title="Reclami - General Brokers Srl | Procedura Reclami"
+  description="Procedura per la presentazione di reclami a General Brokers Srl. Informazioni su come presentare un reclamo e procedure IVASS."
+>
+  <div class="flex min-h-screen">
+    <Header />
+    <div class="flex flex-col flex-1 lg:ml-72">
+      <main class="flex-grow">
+        <GenericHero
+          title="Reclami"
+          subtitle="ASSISTENZA"
+          description="Procedura per la presentazione di reclami ai sensi del Regolamento IVASS n. 24/2008."
+        />
+
+        <section class="section-padding bg-white">
+          <div class="container-custom max-w-4xl">
+            <!-- Intro -->
+            <div class="mb-12">
+              <p class="text-secondary-600 leading-relaxed mb-6">
+                General Brokers Srl si impegna a garantire la massima qualità dei servizi offerti.
+                Qualora il servizio ricevuto non fosse conforme alle aspettative, è possibile presentare
+                un reclamo seguendo la procedura descritta di seguito.
+              </p>
+            </div>
+
+            <!-- Step 1: Reclamo al Broker -->
+            <div class="mb-10">
+              <h2 class="text-xl font-bold text-secondary-900 font-heading mb-4 flex items-center gap-2">
+                <span class="w-8 h-8 bg-primary-600 text-white text-sm font-bold rounded-full flex items-center justify-center">1</span>
+                Reclamo a General Brokers
+              </h2>
+              <div class="bg-secondary-50 rounded-xl p-6">
+                <p class="text-secondary-600 text-sm leading-relaxed mb-4">
+                  Il reclamo può essere inviato con le seguenti modalità:
+                </p>
+                <div class="space-y-3">
+                  <div class="flex items-start gap-3">
+                    <Icon name="lucide:mail" class="w-4 h-4 text-primary-600 mt-1 shrink-0" />
+                    <div>
+                      <span class="font-medium text-secondary-900 text-sm">Email:</span>
+                      <a href={`mailto:${contactInfo.email.general}`} class="text-primary-600 hover:underline text-sm ml-1">{contactInfo.email.general}</a>
+                    </div>
+                  </div>
+                  <div class="flex items-start gap-3">
+                    <Icon name="lucide:mail-check" class="w-4 h-4 text-primary-600 mt-1 shrink-0" />
+                    <div>
+                      <span class="font-medium text-secondary-900 text-sm">PEC:</span>
+                      <a href={`mailto:${contactInfo.email.pec}`} class="text-primary-600 hover:underline text-sm ml-1">{contactInfo.email.pec}</a>
+                    </div>
+                  </div>
+                  <div class="flex items-start gap-3">
+                    <Icon name="lucide:map-pin" class="w-4 h-4 text-primary-600 mt-1 shrink-0" />
+                    <div>
+                      <span class="font-medium text-secondary-900 text-sm">Posta ordinaria:</span>
+                      <span class="text-secondary-600 text-sm ml-1">{legalInfo.companyName} - {contactInfo.address.full}</span>
+                    </div>
+                  </div>
+                  <div class="flex items-start gap-3">
+                    <Icon name="lucide:printer" class="w-4 h-4 text-primary-600 mt-1 shrink-0" />
+                    <div>
+                      <span class="font-medium text-secondary-900 text-sm">Fax:</span>
+                      <span class="text-secondary-600 text-sm ml-1">{contactInfo.fax.display}</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-6 bg-white rounded-lg p-4 border border-secondary-200">
+                  <h4 class="font-medium text-secondary-900 text-sm mb-2">Il reclamo deve contenere:</h4>
+                  <ul class="text-secondary-600 text-sm space-y-1 list-disc pl-5">
+                    <li>Nome, cognome e domicilio del reclamante</li>
+                    <li>Denominazione dell'intermediario (General Brokers Srl)</li>
+                    <li>Motivo del reclamo</li>
+                    <li>Eventuale numero di polizza o sinistro</li>
+                    <li>Documentazione a supporto (se disponibile)</li>
+                  </ul>
+                </div>
+                <p class="text-secondary-600 text-sm mt-4">
+                  General Brokers fornirà riscontro entro <strong>45 giorni</strong> dal ricevimento del reclamo.
+                </p>
+              </div>
+            </div>
+
+            <!-- Step 2: Reclamo all'Impresa -->
+            <div class="mb-10">
+              <h2 class="text-xl font-bold text-secondary-900 font-heading mb-4 flex items-center gap-2">
+                <span class="w-8 h-8 bg-primary-600 text-white text-sm font-bold rounded-full flex items-center justify-center">2</span>
+                Reclamo all'Impresa di Assicurazione
+              </h2>
+              <div class="bg-secondary-50 rounded-xl p-6">
+                <p class="text-secondary-600 text-sm leading-relaxed">
+                  Qualora il reclamo riguardi il comportamento dell'impresa di assicurazione, il reclamante
+                  può rivolgersi direttamente all'Ufficio Reclami dell'impresa interessata, i cui recapiti
+                  sono indicati nella documentazione contrattuale e sul sito web della compagnia.
+                </p>
+              </div>
+            </div>
+
+            <!-- Step 3: Reclamo IVASS -->
+            <div class="mb-10">
+              <h2 class="text-xl font-bold text-secondary-900 font-heading mb-4 flex items-center gap-2">
+                <span class="w-8 h-8 bg-primary-600 text-white text-sm font-bold rounded-full flex items-center justify-center">3</span>
+                Reclamo all'IVASS
+              </h2>
+              <div class="bg-primary-50 border border-primary-100 rounded-xl p-6">
+                <p class="text-secondary-600 text-sm leading-relaxed mb-4">
+                  In caso di mancato o parziale accoglimento del reclamo da parte dell'intermediario o
+                  dell'impresa, oppure in caso di mancata risposta entro i termini previsti, è possibile
+                  rivolgersi all'IVASS:
+                </p>
+                <div class="bg-white rounded-lg p-4 border border-primary-200 space-y-2">
+                  <p class="text-secondary-700 text-sm font-medium">IVASS - Istituto per la Vigilanza sulle Assicurazioni</p>
+                  <p class="text-secondary-600 text-sm">Servizio Tutela del Consumatore</p>
+                  <p class="text-secondary-600 text-sm">Via del Quirinale, 21 - 00187 Roma</p>
+                  <p class="text-secondary-600 text-sm">
+                    Fax: 06.42133206 | PEC:
+                    <a href="mailto:tutela.consumatore@pec.ivass.it" class="text-primary-600 hover:underline">tutela.consumatore@pec.ivass.it</a>
+                  </p>
+                  <a
+                    href="https://www.ivass.it/consumatori/reclami/index.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-primary-600 hover:text-primary-700 text-sm font-medium inline-flex items-center gap-1 mt-2"
+                  >
+                    Modulistica IVASS per reclami
+                    <Icon name="lucide:external-link" class="w-3.5 h-3.5" />
+                  </a>
+                </div>
+                <div class="mt-4 bg-white rounded-lg p-4 border border-primary-200">
+                  <h4 class="font-medium text-secondary-900 text-sm mb-2">Il reclamo all'IVASS deve contenere:</h4>
+                  <ul class="text-secondary-600 text-sm space-y-1 list-disc pl-5">
+                    <li>Dati anagrafici del reclamante</li>
+                    <li>Indicazione dell'intermediario o dell'impresa</li>
+                    <li>Breve descrizione del motivo del reclamo</li>
+                    <li>Copia del reclamo già presentato all'intermediario/impresa e dell'eventuale riscontro</li>
+                    <li>Ogni documento utile a descrivere le circostanze</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Alternative Dispute Resolution -->
+            <div>
+              <h2 class="text-xl font-bold text-secondary-900 font-heading mb-4 flex items-center gap-2">
+                <Icon name="lucide:scale" class="w-5 h-5 text-primary-600" />
+                Sistemi Alternativi di Risoluzione delle Controversie
+              </h2>
+              <div class="bg-secondary-50 rounded-xl p-6">
+                <p class="text-secondary-600 text-sm leading-relaxed mb-4">
+                  In alternativa o in aggiunta al reclamo, il consumatore può ricorrere ai seguenti sistemi
+                  di risoluzione alternativa delle controversie:
+                </p>
+                <ul class="text-secondary-600 text-sm space-y-2 list-disc pl-5">
+                  <li><strong>Mediazione civile:</strong> procedimento di mediazione ai sensi del D.Lgs. 28/2010 presso un organismo di mediazione iscritto nell'apposito registro del Ministero della Giustizia.</li>
+                  <li><strong>Negoziazione assistita:</strong> ai sensi del D.L. 132/2014, convertito in L. 162/2014.</li>
+                  <li><strong>Arbitrato:</strong> secondo le modalità previste dal contratto di assicurazione.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <CTASection variant="contact" theme="secondary" />
+      </main>
+      <Footer />
+      <CookieConsent client:idle />
+    </div>
+  </div>
+</BaseLayout>

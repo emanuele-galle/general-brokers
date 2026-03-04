@@ -1,0 +1,157 @@
+---
+import { Icon } from 'astro-icon/components';
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-secondary-800 text-secondary-300">
+  <!-- Red top line -->
+  <div class="h-[3px] bg-primary-600"></div>
+
+  <!-- Main Footer Content -->
+  <div class="container-custom py-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+      <!-- Company Info -->
+      <div>
+        <div class="mb-4 inline-block">
+          <h3 class="font-heading text-2xl font-bold text-white uppercase tracking-wide">GENERAL BROKERS</h3>
+          <p class="font-heading font-bold text-primary-400 uppercase text-[0.65rem] w-full" style="text-align: justify; text-align-last: justify;">
+            GESTIONI ASSICURATIVE
+          </p>
+        </div>
+        <p class="text-secondary-300 mb-6 text-sm leading-relaxed">
+          Broker assicurativo indipendente dal 1977. Competenza, affidabilit&agrave; e soluzioni personalizzate.
+        </p>
+        <div class="text-secondary-400 text-xs space-y-1.5">
+          <p>Capitale Sociale: &euro; 70.000,00 i.v.</p>
+          <p>C.F. e P.IVA: 03740950153</p>
+          <p>RUI: B000072481</p>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h3 class="font-heading text-xl font-bold mb-6 text-white">Link Utili</h3>
+        <ul class="space-y-3">
+          {[
+            { label: 'Home', href: '/' },
+            { label: 'Che bella Storia!', href: '/chi-siamo' },
+            { label: 'Servizi', href: '/servizi' },
+            { label: 'Richiedi Preventivo', href: '/relazione-preventiva' },
+            { label: 'Contatti', href: '/contatti' },
+            { label: 'Lavora Con Noi', href: '/lavora-con-noi' },
+          ].map((link) => (
+            <li>
+              <a href={link.href} class="text-secondary-300 hover:text-white transition-colors text-sm">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div>
+        <h3 class="font-heading text-xl font-bold mb-6 text-white">Contatti</h3>
+        <ul class="space-y-4">
+          <li class="flex items-start gap-3">
+            <Icon name="lucide:map-pin" class="w-4 h-4 text-primary-600 mt-1 flex-shrink-0" />
+            <span class="text-secondary-300 text-sm">
+              Via Tonale, 20<br />20125 Milano
+            </span>
+          </li>
+          <li class="flex items-center gap-3">
+            <Icon name="lucide:phone" class="w-4 h-4 text-primary-400 flex-shrink-0" />
+            <a href="tel:026698.4847" class="text-secondary-300 hover:text-white transition-colors text-sm">
+              02 6698.4847
+            </a>
+          </li>
+          <li class="flex items-center gap-3">
+            <Icon name="lucide:mail" class="w-4 h-4 text-primary-400 flex-shrink-0" />
+            <a href="mailto:info@generalbrokers.it" class="text-secondary-300 hover:text-white transition-colors text-sm">
+              info@generalbrokers.it
+            </a>
+          </li>
+        </ul>
+
+        <!-- Social Media -->
+        <div class="flex gap-3 mt-6">
+          <a
+            href="https://www.linkedin.com/company/general-brokers"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-9 h-9 bg-white/10 hover:bg-primary-600 hover:text-white text-secondary-300 rounded-lg flex items-center justify-center transition-colors"
+            aria-label="LinkedIn"
+          >
+            <Icon name="lucide:linkedin" class="w-4 h-4" />
+          </a>
+          <a
+            href="https://www.facebook.com/generalbrokers"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-9 h-9 bg-white/10 hover:bg-primary-600 hover:text-white text-secondary-300 rounded-lg flex items-center justify-center transition-colors"
+            aria-label="Facebook"
+          >
+            <Icon name="lucide:facebook" class="w-4 h-4" />
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Certificazioni -->
+    <div class="mt-12 pt-10 border-t border-white/10">
+      <div class="flex flex-wrap items-center justify-center gap-10">
+        <a href="https://www.ivass.it/" target="_blank" rel="noopener noreferrer">
+          <div class="w-28 h-14 opacity-60 hover:opacity-100 transition-all duration-300">
+            <img src="/images/logo/ivass-logo.jpg" alt="IVASS" class="w-full h-full object-contain" width="112" height="56" loading="lazy" />
+          </div>
+        </a>
+        <a href="https://aiba.it/" target="_blank" rel="noopener noreferrer">
+          <div class="w-28 h-14 opacity-60 hover:opacity-100 transition-all duration-300">
+            <img src="/images/logo/aiba-logo.png" alt="AIBA" class="w-full h-full object-contain" width="112" height="56" loading="lazy" />
+          </div>
+        </a>
+        <a href="https://www.consap.it/" target="_blank" rel="noopener noreferrer">
+          <div class="w-20 h-12 opacity-50 hover:opacity-100 transition-all duration-300">
+            <img src="/images/logo/consap_logo.jpg" alt="CONSAP" class="w-full h-full object-contain" width="80" height="48" loading="lazy" />
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="border-t border-white/10 bg-secondary-900">
+    <div class="container-custom py-8">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+        <p class="text-secondary-300 text-sm text-center md:text-left">
+          &copy; {currentYear} General Brokers Srl. Tutti i diritti riservati.
+        </p>
+        <div class="flex flex-wrap justify-center gap-6 text-sm">
+          <a href="/privacy-policy" class="text-secondary-300 hover:text-white transition-colors">Privacy Policy</a>
+          <a href="/cookie-policy" class="text-secondary-300 hover:text-white transition-colors">Cookie Policy</a>
+          <a href="/note-legali" class="text-secondary-300 hover:text-white transition-colors">Note Legali</a>
+        </div>
+      </div>
+      <div class="text-secondary-400 text-xs text-center mt-6 leading-relaxed space-y-3">
+        <p>
+          A norma della circolare ISVAP 393/D del 17/01/2000 si comunica che il Legale Rappresentante
+          e gestore preposto alla mediazione tramite internet &egrave;:<br />
+          <strong class="text-secondary-200">Luigi Bonardi</strong> (Amministratore Unico - Broker - RUI: B000186864)
+        </p>
+        <p>
+          La Societ&agrave; &egrave; soggetta alla vigilanza dell&apos;IVASS - Registro Unico degli Intermediari assicurativi e riassicurativi.<br />
+          &Egrave; possibile verificare la regolare iscrizione al RUI (Sezione B n. B000072481) collegandosi al sito{' '}
+          <a href="https://www.ivass.it" target="_blank" rel="noopener noreferrer" class="text-primary-400 hover:text-primary-300 transition-colors font-medium">
+            www.ivass.it
+          </a>
+        </p>
+      </div>
+      <p class="text-secondary-400 text-xs mt-4">
+        Realizzato da{" "}
+        <a href="https://www.fodisrl.it" target="_blank" rel="noopener noreferrer" class="text-secondary-200 hover:text-primary-400 transition-colors font-medium">
+          Fodi S.r.l.
+        </a>
+      </p>
+    </div>
+  </div>
+</footer>

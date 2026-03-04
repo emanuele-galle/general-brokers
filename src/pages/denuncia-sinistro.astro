@@ -1,0 +1,93 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/layout/Header.astro';
+import Footer from '@/components/layout/Footer.astro';
+import GenericHero from '@/components/sections/GenericHero.astro';
+import CTASection from '@/components/sections/CTASection.astro';
+import CookieConsent from '@/components/islands/CookieConsent.tsx';
+import ClaimsForm from '@/components/islands/ClaimsForm.tsx';
+import { Icon } from 'astro-icon/components';
+import { contactInfo } from '@/data/contact';
+---
+
+<BaseLayout
+  title="Denuncia Sinistro - General Brokers Srl | Segnala un Sinistro Online"
+  description="Compila il modulo online per denunciare un sinistro. Assistenza completa nella gestione e liquidazione dei sinistri assicurativi."
+>
+  <div class="flex min-h-screen">
+    <Header />
+    <div class="flex flex-col flex-1 lg:ml-72">
+      <main class="flex-grow">
+        <GenericHero
+          title="Denuncia Sinistro"
+          subtitle="ASSISTENZA"
+          description="Compila il modulo per segnalare un sinistro. Ti assisteremo in ogni fase del processo, dalla denuncia alla liquidazione."
+        />
+
+        <!-- Info -->
+        <section class="section-padding bg-white">
+          <div class="container-custom max-w-4xl">
+            <div class="bg-primary-50 border border-primary-100 rounded-xl p-6 mb-8">
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center shrink-0">
+                  <Icon name="lucide:info" class="w-5 h-5 text-primary-600" />
+                </div>
+                <div>
+                  <h3 class="font-bold text-secondary-900 font-heading mb-2">Come funziona la denuncia</h3>
+                  <ol class="space-y-2 text-secondary-600 text-sm">
+                    <li class="flex items-start gap-2">
+                      <span class="w-5 h-5 bg-primary-600 text-white text-xs font-bold rounded-full flex items-center justify-center shrink-0 mt-0.5">1</span>
+                      <span>Compila il modulo con i dati del sinistro e allega eventuale documentazione fotografica.</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <span class="w-5 h-5 bg-primary-600 text-white text-xs font-bold rounded-full flex items-center justify-center shrink-0 mt-0.5">2</span>
+                      <span>Riceverai un numero di pratica per tracciare la tua segnalazione.</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <span class="w-5 h-5 bg-primary-600 text-white text-xs font-bold rounded-full flex items-center justify-center shrink-0 mt-0.5">3</span>
+                      <span>Il nostro team ti contatterà entro 24 ore lavorative per aggiornamenti.</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <span class="w-5 h-5 bg-primary-600 text-white text-xs font-bold rounded-full flex items-center justify-center shrink-0 mt-0.5">4</span>
+                      <span>Gestiamo l'intero iter della pratica fino alla liquidazione del sinistro.</span>
+                    </li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-amber-50 border border-amber-200 rounded-xl p-6 mb-12">
+              <div class="flex items-start gap-4">
+                <Icon name="lucide:alert-triangle" class="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
+                <div>
+                  <h3 class="font-bold text-secondary-900 font-heading mb-1">In caso di urgenza</h3>
+                  <p class="text-secondary-600 text-sm">
+                    Per sinistri urgenti o che richiedono intervento immediato, contattaci direttamente al
+                    <a href={`tel:${contactInfo.phone.tel}`} class="text-primary-600 font-medium hover:underline"> {contactInfo.phone.display}</a>
+                    oppure scrivi a
+                    <a href={`mailto:${contactInfo.email.claims}`} class="text-primary-600 font-medium hover:underline"> {contactInfo.email.claims}</a>.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Claims Form -->
+        <section class="section-padding bg-secondary-50">
+          <div class="container-custom max-w-4xl">
+            <h2 class="section-title mb-2">Modulo di Denuncia</h2>
+            <p class="text-secondary-600 mb-8">Compila tutti i campi obbligatori per inviare la tua segnalazione.</p>
+            <div class="bg-white rounded-2xl shadow-sm border border-secondary-200 p-6 md:p-10">
+              <ClaimsForm client:load />
+            </div>
+          </div>
+        </section>
+
+        <CTASection variant="contact" theme="secondary" />
+      </main>
+      <Footer />
+      <CookieConsent client:idle />
+    </div>
+  </div>
+</BaseLayout>

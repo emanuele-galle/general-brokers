@@ -19,33 +19,18 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             set -e
-            echo "🚀 Starting deployment for General Brokers..."
+            echo "Starting deployment for General Brokers..."
 
-            # Navigate to project directory
             cd /var/www/projects/general-brokers
 
-            # Pull latest changes
-            echo "📥 Pulling latest changes..."
+            echo "Pulling latest changes..."
             git pull origin main
 
-            # Install dependencies
-            echo "📦 Installing dependencies..."
-            npm ci --production=false
+            echo "Rebuilding Docker container..."
+            /home/sviluppatore/scripts/docker-smart-rebuild.sh app --no-cache
 
-            # Build and restart container
-            echo "🐳 Rebuilding Docker container..."
-            docker compose build --no-cache
-            docker compose down
-            docker compose up -d
-
-            # Verify container is running
             echo "Verifying deployment..."
             docker compose ps
-
-            # Docker cleanup - remove old images and build cache
-            echo "Cleaning up old Docker resources..."
-            docker image prune -f 2>/dev/null || true
-            docker builder prune -f --filter "until=24h" 2>/dev/null || true
 
             echo "Deployment completed successfully!"
 

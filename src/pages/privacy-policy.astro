@@ -1,0 +1,130 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/layout/Header.astro';
+import Footer from '@/components/layout/Footer.astro';
+import GenericHero from '@/components/sections/GenericHero.astro';
+import CookieConsent from '@/components/islands/CookieConsent.tsx';
+import { legalInfo, contactInfo } from '@/data/contact';
+---
+
+<BaseLayout
+  title="Privacy Policy - General Brokers Srl"
+  description="Informativa sulla privacy e trattamento dei dati personali di General Brokers Srl ai sensi del GDPR (Regolamento UE 2016/679)."
+>
+  <div class="flex min-h-screen">
+    <Header />
+    <div class="flex flex-col flex-1 lg:ml-72">
+      <main class="flex-grow">
+        <GenericHero
+          title="Privacy Policy"
+          subtitle="LEGAL"
+        />
+
+        <section class="section-padding bg-white">
+          <div class="container-custom max-w-4xl prose prose-secondary max-w-none">
+            <p class="text-secondary-600 text-sm mb-8">
+              Ultimo aggiornamento: Marzo 2026
+            </p>
+
+            <h2 class="text-xl font-bold text-secondary-900 font-heading mb-4">1. Titolare del Trattamento</h2>
+            <p class="text-secondary-600 leading-relaxed mb-6">
+              Il Titolare del trattamento dei dati personali è <strong>{legalInfo.companyName}</strong>,
+              con sede legale in {contactInfo.address.full}, P.IVA {legalInfo.vatNumber},
+              C.F. {legalInfo.fiscalCode}, iscritta al RUI al n. {legalInfo.rui.number} (Sezione {legalInfo.rui.section}).
+            </p>
+            <p class="text-secondary-600 leading-relaxed mb-6">
+              Per qualsiasi informazione relativa alla presente Privacy Policy è possibile contattare il Titolare ai seguenti recapiti:
+            </p>
+            <ul class="text-secondary-600 mb-6 space-y-1">
+              <li>Email: <a href={`mailto:${contactInfo.email.general}`} class="text-primary-600 hover:underline">{contactInfo.email.general}</a></li>
+              <li>PEC: <a href={`mailto:${contactInfo.email.pec}`} class="text-primary-600 hover:underline">{contactInfo.email.pec}</a></li>
+              <li>Telefono: {contactInfo.phone.display}</li>
+              <li>Indirizzo: {contactInfo.address.full}</li>
+            </ul>
+
+            <h2 class="text-xl font-bold text-secondary-900 font-heading mb-4">2. Tipologie di Dati Raccolti</h2>
+            <p class="text-secondary-600 leading-relaxed mb-4">
+              I dati personali che possono essere raccolti attraverso questo sito web includono:
+            </p>
+            <ul class="text-secondary-600 mb-6 space-y-2 list-disc pl-5">
+              <li><strong>Dati identificativi:</strong> nome, cognome, codice fiscale, indirizzo.</li>
+              <li><strong>Dati di contatto:</strong> indirizzo email, numero di telefono, indirizzo postale.</li>
+              <li><strong>Dati aziendali:</strong> denominazione sociale, partita IVA (per clienti aziendali).</li>
+              <li><strong>Dati relativi a polizze e sinistri:</strong> numeri di polizza, informazioni sui sinistri, documentazione allegata.</li>
+              <li><strong>Dati di navigazione:</strong> indirizzo IP, tipo di browser, pagine visitate, orari di accesso (raccolti tramite cookie tecnici).</li>
+            </ul>
+
+            <h2 class="text-xl font-bold text-secondary-900 font-heading mb-4">3. Finalità del Trattamento</h2>
+            <p class="text-secondary-600 leading-relaxed mb-4">
+              I dati personali sono trattati per le seguenti finalità:
+            </p>
+            <ul class="text-secondary-600 mb-6 space-y-2 list-disc pl-5">
+              <li><strong>Erogazione dei servizi richiesti:</strong> gestione delle richieste di preventivo, consulenza assicurativa, gestione polizze e sinistri.</li>
+              <li><strong>Adempimenti contrattuali:</strong> gestione del rapporto contrattuale con il cliente.</li>
+              <li><strong>Adempimenti di legge:</strong> obblighi normativi e regolamentari (IVASS, antiriciclaggio).</li>
+              <li><strong>Comunicazioni informative:</strong> invio di comunicazioni relative ai servizi richiesti (previo consenso per comunicazioni commerciali).</li>
+              <li><strong>Miglioramento del servizio:</strong> analisi statistica anonima per migliorare l'esperienza utente sul sito.</li>
+            </ul>
+
+            <h2 class="text-xl font-bold text-secondary-900 font-heading mb-4">4. Base Giuridica del Trattamento</h2>
+            <p class="text-secondary-600 leading-relaxed mb-6">
+              Il trattamento dei dati si fonda sulle seguenti basi giuridiche ai sensi dell'art. 6 del GDPR:
+              esecuzione di un contratto o misure precontrattuali (art. 6.1.b), adempimento di obblighi legali (art. 6.1.c),
+              legittimo interesse del Titolare (art. 6.1.f), consenso dell'interessato per finalità specifiche (art. 6.1.a).
+            </p>
+
+            <h2 class="text-xl font-bold text-secondary-900 font-heading mb-4">5. Conservazione dei Dati</h2>
+            <p class="text-secondary-600 leading-relaxed mb-6">
+              I dati personali sono conservati per il tempo strettamente necessario al raggiungimento delle finalità
+              per cui sono stati raccolti e comunque per un periodo non superiore a 10 anni dalla cessazione del rapporto,
+              salvo obblighi di legge che richiedano una conservazione più lunga.
+            </p>
+
+            <h2 class="text-xl font-bold text-secondary-900 font-heading mb-4">6. Comunicazione e Diffusione dei Dati</h2>
+            <p class="text-secondary-600 leading-relaxed mb-6">
+              I dati personali potranno essere comunicati a: compagnie assicurative per la gestione delle polizze e dei sinistri;
+              autorità di vigilanza (IVASS) e giudiziarie ove richiesto; fornitori di servizi tecnici necessari al funzionamento
+              del sito web. I dati non saranno diffusi né trasferiti al di fuori dell'Unione Europea.
+            </p>
+
+            <h2 class="text-xl font-bold text-secondary-900 font-heading mb-4">7. Diritti dell'Interessato</h2>
+            <p class="text-secondary-600 leading-relaxed mb-4">
+              Ai sensi degli articoli 15-22 del GDPR, l'interessato ha il diritto di:
+            </p>
+            <ul class="text-secondary-600 mb-6 space-y-2 list-disc pl-5">
+              <li>Accedere ai propri dati personali e ottenerne copia.</li>
+              <li>Richiedere la rettifica di dati inesatti o incompleti.</li>
+              <li>Richiedere la cancellazione dei dati (diritto all'oblio), ove applicabile.</li>
+              <li>Richiedere la limitazione del trattamento.</li>
+              <li>Opporsi al trattamento per motivi legittimi.</li>
+              <li>Richiedere la portabilità dei dati in un formato strutturato.</li>
+              <li>Revocare il consenso in qualsiasi momento, senza pregiudicare la liceità del trattamento basato sul consenso prestato prima della revoca.</li>
+              <li>Proporre reclamo al Garante per la protezione dei dati personali (<a href="https://www.garanteprivacy.it" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:underline">www.garanteprivacy.it</a>).</li>
+            </ul>
+
+            <h2 class="text-xl font-bold text-secondary-900 font-heading mb-4">8. Sicurezza dei Dati</h2>
+            <p class="text-secondary-600 leading-relaxed mb-6">
+              Il Titolare adotta misure di sicurezza tecniche e organizzative adeguate a proteggere i dati personali
+              da accessi non autorizzati, perdita, distruzione o alterazione, in conformità con quanto previsto dal GDPR.
+            </p>
+
+            <h2 class="text-xl font-bold text-secondary-900 font-heading mb-4">9. Sviluppo del Sito Web</h2>
+            <p class="text-secondary-600 leading-relaxed mb-6">
+              Il presente sito web è stato sviluppato e viene mantenuto da <strong>Fodi S.r.l.</strong>,
+              che agisce in qualità di responsabile esterno del trattamento per le attività tecniche
+              strettamente necessarie al funzionamento del sito, nel rispetto delle istruzioni impartite dal Titolare.
+            </p>
+
+            <h2 class="text-xl font-bold text-secondary-900 font-heading mb-4">10. Modifiche alla Privacy Policy</h2>
+            <p class="text-secondary-600 leading-relaxed">
+              Il Titolare si riserva il diritto di apportare modifiche alla presente Privacy Policy in qualsiasi momento,
+              dandone informazione agli utenti su questa pagina. Si prega di consultare questa pagina periodicamente.
+            </p>
+          </div>
+        </section>
+      </main>
+      <Footer />
+      <CookieConsent client:idle />
+    </div>
+  </div>
+</BaseLayout>

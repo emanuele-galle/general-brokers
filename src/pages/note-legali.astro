@@ -1,0 +1,170 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/layout/Header.astro';
+import Footer from '@/components/layout/Footer.astro';
+import GenericHero from '@/components/sections/GenericHero.astro';
+import CookieConsent from '@/components/islands/CookieConsent.tsx';
+import { Icon } from 'astro-icon/components';
+import { legalInfo, contactInfo } from '@/data/contact';
+---
+
+<BaseLayout
+  title="Note Legali - General Brokers Srl"
+  description="Informazioni legali, dati societari e registrazioni di General Brokers Srl - Broker Assicurativo iscritto al RUI."
+>
+  <div class="flex min-h-screen">
+    <Header />
+    <div class="flex flex-col flex-1 lg:ml-72">
+      <main class="flex-grow">
+        <GenericHero
+          title="Note Legali"
+          subtitle="LEGAL"
+        />
+
+        <section class="section-padding bg-white">
+          <div class="container-custom max-w-4xl">
+            <!-- Company Info -->
+            <div class="mb-12">
+              <h2 class="text-xl font-bold text-secondary-900 font-heading mb-6 flex items-center gap-2">
+                <Icon name="lucide:building-2" class="w-5 h-5 text-primary-600" />
+                Dati Societari
+              </h2>
+              <div class="bg-secondary-50 rounded-xl p-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {[
+                    { label: 'Ragione Sociale', value: legalInfo.companyName },
+                    { label: 'Tipo', value: legalInfo.companyType },
+                    { label: 'Sede Legale', value: contactInfo.address.full },
+                    { label: 'Capitale Sociale', value: legalInfo.shareCapital },
+                    { label: 'Partita IVA', value: legalInfo.vatNumber },
+                    { label: 'Codice Fiscale', value: legalInfo.fiscalCode },
+                    { label: 'CCIAA Milano', value: `n. ${legalInfo.cciaa}` },
+                    { label: 'Tribunale Milano', value: `n. ${legalInfo.tribunale}` },
+                  ].map((row) => (
+                    <div>
+                      <span class="text-secondary-500 font-medium text-sm block">{row.label}</span>
+                      <span class="text-secondary-900 text-sm">{row.value}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <!-- RUI Registration -->
+            <div class="mb-12">
+              <h2 class="text-xl font-bold text-secondary-900 font-heading mb-6 flex items-center gap-2">
+                <Icon name="lucide:shield-check" class="w-5 h-5 text-primary-600" />
+                Iscrizione al Registro Unico degli Intermediari (RUI)
+              </h2>
+              <div class="bg-primary-50 border border-primary-100 rounded-xl p-6 space-y-4">
+                <div>
+                  <span class="text-secondary-500 font-medium text-sm block">Numero RUI</span>
+                  <span class="text-secondary-900 text-sm">{legalInfo.rui.number}</span>
+                </div>
+                <div>
+                  <span class="text-secondary-500 font-medium text-sm block">Sezione</span>
+                  <span class="text-secondary-900 text-sm">{legalInfo.rui.section} - Broker di assicurazione e di riassicurazione</span>
+                </div>
+                <p class="text-secondary-600 text-sm leading-relaxed">
+                  {legalInfo.ivass}
+                </p>
+                <p class="text-secondary-600 text-sm leading-relaxed">
+                  {legalInfo.ivassVerifica}
+                </p>
+                <a
+                  href="https://www.ivass.it"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-primary-600 hover:text-primary-700 text-sm font-medium inline-flex items-center gap-1"
+                >
+                  Verifica iscrizione su IVASS
+                  <Icon name="lucide:external-link" class="w-3.5 h-3.5" />
+                </a>
+              </div>
+            </div>
+
+            <!-- Legal Representative -->
+            <div class="mb-12">
+              <h2 class="text-xl font-bold text-secondary-900 font-heading mb-6 flex items-center gap-2">
+                <Icon name="lucide:user" class="w-5 h-5 text-primary-600" />
+                Legale Rappresentante
+              </h2>
+              <div class="bg-secondary-50 rounded-xl p-6">
+                <p class="text-secondary-600 text-sm leading-relaxed">
+                  {legalInfo.isvapCircolare}
+                </p>
+              </div>
+            </div>
+
+            <!-- Contact -->
+            <div class="mb-12">
+              <h2 class="text-xl font-bold text-secondary-900 font-heading mb-6 flex items-center gap-2">
+                <Icon name="lucide:mail" class="w-5 h-5 text-primary-600" />
+                Contatti
+              </h2>
+              <div class="bg-secondary-50 rounded-xl p-6 space-y-3">
+                {[
+                  { label: 'Telefono', value: contactInfo.phone.display },
+                  { label: 'Fax', value: contactInfo.fax.display },
+                  { label: 'Email', value: contactInfo.email.general },
+                  { label: 'PEC', value: contactInfo.email.pec },
+                  { label: 'Indirizzo', value: contactInfo.address.full },
+                ].map((row) => (
+                  <div class="flex flex-col sm:flex-row sm:gap-4">
+                    <span class="text-secondary-500 font-medium text-sm sm:w-32 shrink-0">{row.label}</span>
+                    <span class="text-secondary-900 text-sm">{row.value}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="mb-12">
+              <h2 class="text-xl font-bold text-secondary-900 font-heading mb-6 flex items-center gap-2">
+                <Icon name="lucide:copyright" class="w-5 h-5 text-primary-600" />
+                Proprietà Intellettuale
+              </h2>
+              <div class="bg-secondary-50 rounded-xl p-6">
+                <p class="text-secondary-600 text-sm leading-relaxed">
+                  Tutti i contenuti del presente sito web (testi, immagini, grafica, loghi, marchi) sono di proprietà
+                  di {legalInfo.companyName} o dei rispettivi titolari e sono protetti dalla normativa vigente in materia
+                  di proprietà intellettuale. È vietata la riproduzione, anche parziale, senza autorizzazione scritta
+                  del Titolare.
+                </p>
+              </div>
+            </div>
+
+            <!-- Banking -->
+            <div class="mb-12">
+              <h2 class="text-xl font-bold text-secondary-900 font-heading mb-6 flex items-center gap-2">
+                <Icon name="lucide:landmark" class="w-5 h-5 text-primary-600" />
+                Coordinate Bancarie
+              </h2>
+              <div class="bg-secondary-50 rounded-xl p-6 space-y-3">
+                <div class="flex flex-col sm:flex-row sm:gap-4">
+                  <span class="text-secondary-500 font-medium text-sm sm:w-32 shrink-0">IBAN</span>
+                  <span class="text-secondary-900 text-sm font-mono">{contactInfo.iban}</span>
+                </div>
+                <div class="flex flex-col sm:flex-row sm:gap-4">
+                  <span class="text-secondary-500 font-medium text-sm sm:w-32 shrink-0">C/C Postale</span>
+                  <span class="text-secondary-900 text-sm font-mono">{contactInfo.ccPostale}</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Developer -->
+            <div class="border-t border-secondary-200 pt-8">
+              <h2 class="text-xl font-bold text-secondary-900 font-heading mb-4">Sviluppo e Gestione Tecnica</h2>
+              <p class="text-secondary-600 text-sm leading-relaxed">
+                Il presente sito web è stato sviluppato e viene gestito tecnicamente da <strong class="text-secondary-900">Fodi S.r.l.</strong>, con sede in Italia.
+                Per informazioni: <a href="https://www.fodisrl.it" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:underline">www.fodisrl.it</a>.
+              </p>
+            </div>
+          </div>
+        </section>
+      </main>
+      <Footer />
+      <CookieConsent client:idle />
+    </div>
+  </div>
+</BaseLayout>

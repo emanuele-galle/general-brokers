@@ -1,24 +1,20 @@
-import { defineConfig, globalIgnores } from "eslint/config";
-import { fixupConfigRules } from "@eslint/compat";
-import nextVitals from "eslint-config-next/core-web-vitals";
-import nextTs from "eslint-config-next/typescript";
-import sonarjs from "eslint-plugin-sonarjs";
-import reactPerf from "eslint-plugin-react-perf";
-import createGuardrails from "/home/sviluppatore/configs/eslint-guardrails.mjs";
+import eslintPluginAstro from 'eslint-plugin-astro';
+import sonarjs from 'eslint-plugin-sonarjs';
+import tseslint from 'typescript-eslint';
 
-const guardrails = createGuardrails(sonarjs, reactPerf);
-
-const eslintConfig = defineConfig([
-  ...fixupConfigRules(nextVitals),
-  ...fixupConfigRules(nextTs),
-  ...guardrails,
-  globalIgnores([
-    ".next/**",
-    "out/**",
-    "build/**",
-    "next-env.d.ts",
-  ]),
-]);
-
-export default eslintConfig;
-
+export default [
+  ...tseslint.configs.recommended,
+  ...eslintPluginAstro.configs.recommended,
+  {
+    plugins: { sonarjs },
+    rules: {
+      'sonarjs/cognitive-complexity': ['error', 15],
+      'sonarjs/no-duplicate-string': ['warn', { threshold: 5 }],
+      'sonarjs/no-identical-functions': 'error',
+      '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+    },
+  },
+  {
+    ignores: ['dist/**', '.astro/**', 'node_modules/**'],
+  },
+];

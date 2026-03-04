@@ -1,0 +1,93 @@
+---
+import '@/styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  keywords?: string;
+  canonical?: string;
+  ogImage?: string;
+}
+
+const {
+  title = 'General Brokers Srl - Broker Assicurativo Milano dal 1977',
+  description = 'General Brokers è un broker assicurativo indipendente a Milano. Specializzati in gestione polizze, sinistri e consulenza personalizzata. Esperienza dal 1977.',
+  keywords = 'broker assicurativo Milano, gestione sinistri, polizze personalizzate, intermediario assicurativo indipendente, assicurazioni aziende, General Brokers',
+  canonical,
+  ogImage,
+} = Astro.props;
+
+const siteUrl = 'https://general-brokers.fodivps2.cloud';
+const canonicalUrl = canonical || new URL(Astro.url.pathname, siteUrl).href;
+---
+
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="General Brokers Srl" />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:locale" content="it_IT" />
+    <meta property="og:url" content={canonicalUrl} />
+    {ogImage && <meta property="og:image" content={ogImage} />}
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#fe0000" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="General Brokers" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Schema.org - InsuranceAgency -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "InsuranceAgency",
+      "name": "General Brokers Srl",
+      "description": "Broker assicurativo indipendente specializzato in gestione polizze e sinistri",
+      "foundingDate": "1977",
+      "url": siteUrl,
+      "telephone": "+39026698.4847",
+      "email": "info@generalbrokers.it",
+      "faxNumber": "+39026707.2163",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Via Tonale, 20",
+        "addressLocality": "Milano",
+        "postalCode": "20125",
+        "addressCountry": "IT"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "45.4773",
+        "longitude": "9.2060"
+      },
+      "priceRange": "$$",
+      "areaServed": {
+        "@type": "Country",
+        "name": "Italy"
+      }
+    })} />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

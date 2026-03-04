@@ -1,0 +1,37 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/layout/Header.astro';
+import Footer from '@/components/layout/Footer.astro';
+import GenericHero from '@/components/sections/GenericHero.astro';
+import CTASection from '@/components/sections/CTASection.astro';
+import CookieConsent from '@/components/islands/CookieConsent.tsx';
+import ServicesPage from '@/components/islands/ServicesPage.tsx';
+---
+
+<BaseLayout
+  title="I Nostri Servizi - General Brokers Srl | Soluzioni Assicurative Complete"
+  description="Scopri i servizi di General Brokers: gestione polizze, sinistri, consulenza rischi, assicurazioni aziendali e per privati. Broker indipendente a Milano."
+>
+  <div class="flex min-h-screen">
+    <Header />
+    <div class="flex flex-col flex-1 lg:ml-72">
+      <main class="flex-grow">
+        <GenericHero
+          title="I Nostri Servizi"
+          subtitle="SERVIZI"
+          description="Soluzioni assicurative complete per privati e aziende. Come broker indipendenti, lavoriamo esclusivamente per i tuoi interessi."
+        />
+
+        <section class="section-padding bg-white">
+          <div class="container-custom">
+            <ServicesPage client:load />
+          </div>
+        </section>
+
+        <CTASection variant="consultation" theme="dark" />
+      </main>
+      <Footer />
+      <CookieConsent client:idle />
+    </div>
+  </div>
+</BaseLayout>

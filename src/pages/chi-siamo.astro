@@ -1,0 +1,169 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/layout/Header.astro';
+import Footer from '@/components/layout/Footer.astro';
+import GenericHero from '@/components/sections/GenericHero.astro';
+import CTASection from '@/components/sections/CTASection.astro';
+import CookieConsent from '@/components/islands/CookieConsent.tsx';
+import { Icon } from 'astro-icon/components';
+import { foundingYear, yearsOfExperience } from '@/data/company';
+---
+
+<BaseLayout
+  title="Chi Siamo - General Brokers Srl | Broker Assicurativo Milano dal 1977"
+  description="Scopri la storia di General Brokers, broker assicurativo indipendente fondato nel 1977 a Milano. Competenza, indipendenza e soluzioni personalizzate."
+>
+  <div class="flex min-h-screen">
+    <Header />
+    <div class="flex flex-col flex-1 lg:ml-72">
+      <main class="flex-grow">
+        <GenericHero
+          title="Che bella Storia!"
+          subtitle="CHI SIAMO"
+          description={`Dal ${foundingYear} al fianco di privati e aziende, con competenza e indipendenza, per offrire sempre la miglior soluzione assicurativa.`}
+        />
+
+        <!-- Company History -->
+        <section class="section-padding bg-white">
+          <div class="container-custom">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <p class="text-primary-600 font-semibold text-sm uppercase tracking-wider mb-3">La Nostra Storia</p>
+                <h2 class="section-title">Oltre {yearsOfExperience} Anni di Esperienza</h2>
+                <p class="text-secondary-600 leading-relaxed mt-4 mb-6">
+                  General Brokers è stata fondata nel {foundingYear} a Milano con una missione chiara: offrire ai propri clienti un servizio assicurativo indipendente, trasparente e di alta qualità.
+                </p>
+                <p class="text-secondary-600 leading-relaxed mb-6">
+                  Come broker indipendenti, non rappresentiamo nessuna compagnia assicurativa. Lavoriamo esclusivamente nell'interesse dei nostri clienti, analizzando il mercato per trovare le soluzioni più vantaggiose e adatte alle loro esigenze specifiche.
+                </p>
+                <p class="text-secondary-600 leading-relaxed">
+                  Nel corso degli anni, abbiamo costruito relazioni solide con oltre 50 compagnie assicurative, permettendoci di offrire una vasta gamma di prodotti e condizioni competitive che un singolo agente non potrebbe mai garantire.
+                </p>
+              </div>
+              <div class="space-y-6">
+                <img src="/images/office/office-1.jpg" alt="Ufficio General Brokers Milano" class="rounded-xl shadow-lg w-full h-64 object-cover" />
+                <img src="/images/about/protection.jpg" alt="Consulenza assicurativa personalizzata" class="rounded-xl shadow-lg w-full h-64 object-cover" />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Timeline -->
+        <section class="section-padding bg-secondary-50">
+          <div class="container-custom max-w-4xl">
+            <div class="text-center mb-16">
+              <p class="text-primary-600 font-semibold text-sm uppercase tracking-wider mb-3">La Nostra Evoluzione</p>
+              <h2 class="section-title">Una Storia di Crescita</h2>
+            </div>
+            <div class="space-y-8">
+              {[
+                { year: '1977', title: 'La Fondazione', description: 'General Brokers nasce a Milano con la vocazione di offrire consulenza assicurativa indipendente e personalizzata.' },
+                { year: '1985', title: 'Espansione Aziendale', description: 'Il portafoglio clienti si estende al settore aziendale, con soluzioni dedicate per PMI e professionisti.' },
+                { year: '1995', title: 'Gestioni Specializzate', description: "Si sviluppa l'area delle gestioni specifiche: polizze all-risks, multirischi artigiani e rendite assicurative." },
+                { year: '2005', title: 'Network Nazionale', description: 'La collaborazione con oltre 40 compagnie assicurative consolida la posizione di General Brokers come punto di riferimento nel brokeraggio milanese.' },
+                { year: '2015', title: 'Innovazione Digitale', description: 'Digitalizzazione dei processi e introduzione di strumenti tecnologici per migliorare il servizio al cliente.' },
+                { year: 'Oggi', title: 'Eccellenza Consolidata', description: `Con oltre ${yearsOfExperience} anni di esperienza e più di 50 compagnie partner, continuiamo a innovare e garantire il miglior servizio ai nostri clienti.` },
+              ].map((item) => (
+                <div class="flex gap-6 items-start">
+                  <div class="flex-shrink-0 w-20 text-right">
+                    <span class="text-primary-600 font-bold text-lg font-heading">{item.year}</span>
+                  </div>
+                  <div class="flex flex-col items-center">
+                    <div class="w-4 h-4 bg-primary-600 rounded-full border-4 border-primary-100"></div>
+                    <div class="w-0.5 bg-primary-200 flex-1 min-h-[60px]"></div>
+                  </div>
+                  <div class="pb-8">
+                    <h3 class="text-lg font-bold text-secondary-900 font-heading mb-1">{item.title}</h3>
+                    <p class="text-secondary-600 text-sm leading-relaxed">{item.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <!-- Broker vs Agente -->
+        <section class="section-padding bg-white">
+          <div class="container-custom max-w-5xl">
+            <div class="text-center mb-12">
+              <p class="text-primary-600 font-semibold text-sm uppercase tracking-wider mb-3">La Differenza</p>
+              <h2 class="section-title">Broker vs Agente Assicurativo</h2>
+              <p class="section-subtitle mt-4">
+                Capire la differenza è fondamentale per scegliere il partner giusto per le proprie esigenze assicurative.
+              </p>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="w-full border-collapse">
+                <thead>
+                  <tr>
+                    <th class="text-left p-4 bg-secondary-100 text-secondary-700 font-heading text-sm uppercase tracking-wider rounded-tl-lg">Aspetto</th>
+                    <th class="text-left p-4 bg-primary-600 text-white font-heading text-sm uppercase tracking-wider">
+                      <div class="flex items-center gap-2">
+                        <Icon name="lucide:shield-check" class="w-4 h-4" />
+                        Broker (Noi)
+                      </div>
+                    </th>
+                    <th class="text-left p-4 bg-secondary-200 text-secondary-700 font-heading text-sm uppercase tracking-wider rounded-tr-lg">Agente</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    { aspect: 'Rappresenta', broker: 'Il cliente', agent: 'La compagnia assicurativa' },
+                    { aspect: 'Indipendenza', broker: 'Totale — nessun vincolo con compagnie', agent: 'Vincolato a una o poche compagnie' },
+                    { aspect: 'Offerta', broker: 'Accesso a tutto il mercato (50+ compagnie)', agent: 'Limitata ai prodotti della propria mandante' },
+                    { aspect: 'Consulenza', broker: "Imparziale, nell'interesse del cliente", agent: 'Orientata ai prodotti della compagnia' },
+                    { aspect: 'Gestione sinistri', broker: 'Assistenza completa, dalla denuncia alla liquidazione', agent: 'Spesso limitata alla raccolta documenti' },
+                    { aspect: 'Negoziazione', broker: 'Negozia le migliori condizioni per il cliente', agent: 'Applica le condizioni della compagnia' },
+                    { aspect: 'Costo per il cliente', broker: 'Nessun costo aggiuntivo — la commissione è inclusa nel premio', agent: 'Nessun costo aggiuntivo' },
+                    { aspect: 'Iscrizione', broker: 'RUI Sezione B (IVASS)', agent: 'RUI Sezione A (IVASS)' },
+                  ].map((row, i) => (
+                    <tr class={i % 2 === 0 ? 'bg-white' : 'bg-secondary-50'}>
+                      <td class="p-4 text-secondary-900 font-medium text-sm border-b border-secondary-100">{row.aspect}</td>
+                      <td class="p-4 text-secondary-700 text-sm border-b border-secondary-100 bg-primary-50/50">
+                        <div class="flex items-start gap-2">
+                          <Icon name="lucide:check" class="w-4 h-4 text-primary-600 shrink-0 mt-0.5" />
+                          <span>{row.broker}</span>
+                        </div>
+                      </td>
+                      <td class="p-4 text-secondary-600 text-sm border-b border-secondary-100">{row.agent}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- Values -->
+        <section class="section-padding bg-secondary-50">
+          <div class="container-custom">
+            <div class="text-center mb-12">
+              <p class="text-primary-600 font-semibold text-sm uppercase tracking-wider mb-3">I Nostri Valori</p>
+              <h2 class="section-title">Cosa Ci Guida</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                { icon: 'lucide:shield', title: 'Indipendenza', description: 'Non rappresentiamo nessuna compagnia. Lavoriamo solo per te.' },
+                { icon: 'lucide:eye', title: 'Trasparenza', description: 'Ogni scelta è spiegata e condivisa. Nessun costo nascosto.' },
+                { icon: 'lucide:users', title: 'Relazione', description: 'Costruiamo rapporti duraturi basati sulla fiducia reciproca.' },
+                { icon: 'lucide:award', title: 'Competenza', description: `Oltre ${yearsOfExperience} anni di esperienza nel mercato assicurativo.` },
+              ].map((value) => (
+                <div class="card text-center">
+                  <div class="w-14 h-14 bg-primary-50 rounded-xl flex items-center justify-center mx-auto mb-4">
+                    <Icon name={value.icon} class="w-7 h-7 text-primary-600" />
+                  </div>
+                  <h3 class="text-lg font-bold text-secondary-900 font-heading mb-2">{value.title}</h3>
+                  <p class="text-secondary-600 text-sm leading-relaxed">{value.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <CTASection variant="consultation" theme="dark" />
+      </main>
+      <Footer />
+      <CookieConsent client:idle />
+    </div>
+  </div>
+</BaseLayout>

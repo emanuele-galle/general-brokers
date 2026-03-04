@@ -6,14 +6,11 @@ services:
     container_name: general-brokers
     restart: unless-stopped
     healthcheck:
-      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://127.0.0.1:3000/"]
+      test: ["CMD", "curl", "-f", "http://localhost:80/"]
       interval: 30s
       timeout: 10s
       retries: 3
       start_period: 30s
-    environment:
-      - NODE_ENV=production
-      - PORT=3000
     networks:
       - traefik-public
       - panel-internal
@@ -22,7 +19,7 @@ services:
       - "traefik.http.routers.general-brokers.rule=Host(`general-brokers.fodivps2.cloud`)"
       - "traefik.http.routers.general-brokers.entrypoints=websecure"
       - "traefik.http.routers.general-brokers.tls.certresolver=letsencrypt"
-      - "traefik.http.services.general-brokers.loadbalancer.server.port=3000"
+      - "traefik.http.services.general-brokers.loadbalancer.server.port=80"
       - "traefik.docker.network=traefik-public"
 
 networks:

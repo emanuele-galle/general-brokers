@@ -1,0 +1,39 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/layout/Header.astro';
+import Footer from '@/components/layout/Footer.astro';
+import GenericHero from '@/components/sections/GenericHero.astro';
+import CTASection from '@/components/sections/CTASection.astro';
+import CookieConsent from '@/components/islands/CookieConsent.tsx';
+import RelazioneForm from '@/components/islands/RelazioneForm.tsx';
+---
+
+<BaseLayout
+  title="Richiedi Preventivo - General Brokers Srl | Relazione Preventiva"
+  description="Compila la relazione preventiva per ricevere un preventivo personalizzato. Soluzioni assicurative su misura per privati e aziende."
+>
+  <div class="flex min-h-screen">
+    <Header />
+    <div class="flex flex-col flex-1 lg:ml-72">
+      <main class="flex-grow">
+        <GenericHero
+          title="Richiedi Preventivo"
+          subtitle="PREVENTIVO"
+          description="Compila la relazione preventiva per ricevere un'analisi personalizzata delle tue esigenze assicurative e un preventivo su misura."
+        />
+
+        <section class="section-padding bg-white">
+          <div class="container-custom max-w-3xl">
+            <div class="bg-white rounded-2xl shadow-sm border border-secondary-200 p-6 md:p-10">
+              <RelazioneForm client:load />
+            </div>
+          </div>
+        </section>
+
+        <CTASection variant="contact" theme="secondary" />
+      </main>
+      <Footer />
+      <CookieConsent client:idle />
+    </div>
+  </div>
+</BaseLayout>

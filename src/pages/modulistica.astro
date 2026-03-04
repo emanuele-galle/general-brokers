@@ -1,0 +1,111 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/layout/Header.astro';
+import Footer from '@/components/layout/Footer.astro';
+import GenericHero from '@/components/sections/GenericHero.astro';
+import CTASection from '@/components/sections/CTASection.astro';
+import CookieConsent from '@/components/islands/CookieConsent.tsx';
+import { Icon } from 'astro-icon/components';
+
+const documents = [
+  {
+    category: 'Sinistri Auto',
+    items: [
+      { name: 'CID - Constatazione Amichevole', file: 'Modulo Blu.pdf', description: 'Modulo per la constatazione amichevole di sinistro stradale (Modulo Blu).' },
+      { name: 'Richiesta di Risarcimento', file: 'Richiesta di risarcimento.pdf', description: 'Modulo per la richiesta di risarcimento danni.' },
+    ],
+  },
+  {
+    category: 'Mandati',
+    items: [
+      { name: 'Mandato - Privato', file: 'Mandato - privato.pdf', description: 'Modulo di conferimento mandato per persona fisica.' },
+      { name: 'Mandato - Società', file: 'Mandato - societa.pdf', description: 'Modulo di conferimento mandato per persona giuridica.' },
+      { name: 'Risposta al Mandato - Privato', file: 'Risposta al mandato - privato.pdf', description: 'Modulo di risposta al mandato per persona fisica.' },
+      { name: 'Risposta al Mandato - Società', file: 'Risposta al mandato - societa.pdf', description: 'Modulo di risposta al mandato per persona giuridica.' },
+    ],
+  },
+  {
+    category: 'Informative',
+    items: [
+      { name: 'Allegato 3 - Informativa sul Distributore', file: 'Allegato 3.pdf', description: 'Informativa obbligatoria sull\'intermediario assicurativo.' },
+      { name: 'Allegato 4 - Informativa Precontrattuale', file: 'Allegato 4.pdf', description: 'Informativa precontrattuale ai sensi della normativa vigente.' },
+      { name: 'Allegato 4 bis', file: 'Allegato 4 bis.pdf', description: 'Integrazione all\'informativa precontrattuale.' },
+      { name: 'Allegato 4 Ter', file: 'Allegato 4 ter.pdf', description: 'Ulteriore integrazione all\'informativa precontrattuale.' },
+      { name: 'Allegati - Ricevuta di Consegna', file: 'Allegati - ricevuta di consegna.pdf', description: 'Ricevuta di consegna della documentazione.' },
+    ],
+  },
+  {
+    category: 'Altri Documenti',
+    items: [
+      { name: 'Elenco delle Imprese', file: 'Elenco delle Imprese.pdf', description: 'Elenco delle compagnie assicurative con cui collaboriamo.' },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Modulistica - General Brokers Srl | Scarica i Moduli"
+  description="Scarica i moduli e documenti necessari: CID, denunce sinistro, mandati, informative precontrattuali e allegati IVASS."
+>
+  <div class="flex min-h-screen">
+    <Header />
+    <div class="flex flex-col flex-1 lg:ml-72">
+      <main class="flex-grow">
+        <GenericHero
+          title="Modulistica"
+          subtitle="DOCUMENTI"
+          description="Scarica i moduli necessari per le tue pratiche assicurative. Tutti i documenti sono in formato PDF."
+        />
+
+        <section class="section-padding bg-white">
+          <div class="container-custom max-w-4xl">
+            {documents.map((category) => (
+              <div class="mb-12 last:mb-0">
+                <h2 class="text-xl font-bold text-secondary-900 font-heading mb-6 flex items-center gap-2">
+                  <Icon name="lucide:folder" class="w-5 h-5 text-primary-600" />
+                  {category.category}
+                </h2>
+                <div class="space-y-3">
+                  {category.items.map((doc) => (
+                    <div class="card flex items-center gap-4 group hover:border-primary-200 transition-colors">
+                      <div class="w-10 h-10 bg-red-50 rounded-lg flex items-center justify-center shrink-0">
+                        <Icon name="lucide:file-text" class="w-5 h-5 text-red-500" />
+                      </div>
+                      <div class="flex-1 min-w-0">
+                        <h3 class="font-medium text-secondary-900 text-sm">{doc.name}</h3>
+                        <p class="text-secondary-500 text-xs mt-0.5 truncate">{doc.description}</p>
+                      </div>
+                      <a
+                        href={`/documents/modulistica/${doc.file}`}
+                        download
+                        class="btn-outline text-xs px-4 py-2 inline-flex items-center gap-1.5 shrink-0 border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white"
+                      >
+                        <Icon name="lucide:download" class="w-3.5 h-3.5" />
+                        Scarica
+                      </a>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+
+            <div class="mt-12 bg-secondary-50 rounded-xl p-6 text-center">
+              <Icon name="lucide:help-circle" class="w-8 h-8 text-secondary-400 mx-auto mb-3" />
+              <p class="text-secondary-600 text-sm mb-4">
+                Non trovi il documento che cerchi? Contattaci e ti invieremo il modulo necessario.
+              </p>
+              <a href="/contatti" class="btn-primary inline-flex items-center gap-2 text-sm">
+                Contattaci
+                <Icon name="lucide:arrow-right" class="w-4 h-4" />
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <CTASection variant="default" theme="secondary" />
+      </main>
+      <Footer />
+      <CookieConsent client:idle />
+    </div>
+  </div>
+</BaseLayout>

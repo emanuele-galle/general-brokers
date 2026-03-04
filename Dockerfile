@@ -1,46 +1,20 @@
-# General Brokers - Production Dockerfile
-FROM node:24.13.0-alpine AS base
+FROM node:24-alpine AS build
 
-# Install dependencies only when needed
-FROM base AS deps
-RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
-# Copy package files
-COPY package.json package-lock.json* ./
+COPY package.json package-lock.json ./
 RUN npm ci
 
-# Rebuild the source code only when needed
-FROM base AS builder
-WORKDIR /app
-COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-
-# Disable telemetry during build
-ENV NEXT_TELEMETRY_DISABLED=1
-
 RUN npm run build
 
-# Production image
-FROM base AS runner
-WORKDIR /app
+FROM nginx:1.27-alpine
 
-ENV NODE_ENV=production
-ENV NEXT_TELEMETRY_DISABLED=1
+RUN apk add --no-cache curl
 
-RUN addgroup --system --gid 1001 nodejs
-RUN adduser --system --uid 1001 nextjs
+COPY --from=build /app/dist /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Copy built application
-COPY --from=builder /app/public ./public
-COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
-COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+EXPOSE 80
 
-USER nextjs
-
-EXPOSE 3000
-
-ENV PORT=3000
-ENV HOSTNAME="0.0.0.0"
-
-CMD ["node", "server.js"]
+CMD ["nginx", "-g", "daemon off;"]

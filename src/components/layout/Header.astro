@@ -1,0 +1,146 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const currentPath = Astro.url.pathname;
+
+const menuItems = [
+  { title: 'Home', href: '/', icon: 'lucide:home' },
+  { title: 'Che bella Storia!', href: '/chi-siamo', icon: 'lucide:book-open' },
+  { title: 'Richiedi Preventivo', href: '/relazione-preventiva', icon: 'lucide:file-text' },
+  { title: 'I Nostri Servizi', href: '/servizi', icon: 'lucide:thumbs-up' },
+  { title: 'Denuncia Sinistro', href: '/denuncia-sinistro', icon: 'lucide:alert-triangle', highlight: true },
+  { title: 'Modulistica', href: '/modulistica', icon: 'lucide:download' },
+  { title: 'Contatti', href: '/contatti', icon: 'lucide:mail' },
+  { title: 'Lavora Con Noi', href: '/lavora-con-noi', icon: 'lucide:briefcase' },
+];
+
+function isActive(href: string): boolean {
+  if (href === '/') return currentPath === '/';
+  return currentPath.startsWith(href);
+}
+---
+
+<!-- Mobile menu button -->
+<button
+  id="mobile-menu-btn"
+  class="lg:hidden fixed top-4 left-4 z-40 bg-primary-700 text-white p-3 rounded-lg shadow-lg hover:bg-primary-800 transition-colors"
+  aria-label="Apri menu"
+>
+  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+  </svg>
+</button>
+
+<!-- Overlay -->
+<div id="sidebar-overlay" class="fixed inset-0 bg-black/50 z-40 lg:hidden hidden"></div>
+
+<!-- Sidebar -->
+<aside
+  id="sidebar"
+  class="fixed top-0 left-0 h-screen bg-primary-600 text-white shadow-2xl z-50 overflow-y-auto transition-transform duration-300 ease-in-out -translate-x-full lg:translate-x-0 w-64 lg:w-72"
+>
+  <!-- Logo -->
+  <div class="px-4 pt-5 pb-3">
+    <a href="/" class="block">
+      <div class="bg-white rounded-lg p-4 flex items-center justify-center">
+        <img
+          src="/images/logo/general-brokers-logo.jpg"
+          alt="General Brokers Logo"
+          class="w-40 h-16 object-contain"
+          width="160"
+          height="64"
+        />
+      </div>
+    </a>
+    <p class="text-center text-white text-sm italic font-serif mt-3">
+      l&apos;assicurezza firmata
+    </p>
+  </div>
+
+  <!-- Menu -->
+  <nav class="py-4">
+    <ul class="space-y-1 px-3">
+      {menuItems.map((item) => {
+        const active = isActive(item.href);
+        return (
+          <li>
+            <a
+              href={item.href}
+              class:list={[
+                'flex items-center gap-3 px-4 py-3.5 rounded-lg transition-all duration-200 group text-[15px]',
+                active
+                  ? 'bg-white text-primary-600 font-bold shadow-md'
+                  : 'text-white hover:bg-white/15',
+              ]}
+            >
+              <Icon
+                name={item.icon}
+                class:list={[
+                  'flex-shrink-0 w-[18px] h-[18px]',
+                  active ? 'text-primary-600' : 'text-white group-hover:text-white',
+                ]}
+              />
+              <span>{item.title}</span>
+            </a>
+          </li>
+        );
+      })}
+    </ul>
+  </nav>
+
+  <!-- Social -->
+  <div class="px-6 py-4 border-t border-white/30 mt-auto">
+    <div class="flex justify-center gap-4">
+      <a
+        href="https://www.linkedin.com/company/general-brokers"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="p-2 text-white/80 hover:text-white transition-colors"
+        aria-label="LinkedIn"
+      >
+        <Icon name="lucide:linkedin" class="w-5 h-5" />
+      </a>
+      <a
+        href="https://www.facebook.com/generalbrokers"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="p-2 text-white/80 hover:text-white transition-colors"
+        aria-label="Facebook"
+      >
+        <Icon name="lucide:facebook" class="w-5 h-5" />
+      </a>
+    </div>
+  </div>
+
+  <!-- Footer Info -->
+  <div class="px-6 py-4 border-t border-white/30 text-xs text-white/70 text-center">
+    <p class="mb-1">RUI: B000072481</p>
+    <p>P.IVA: 03740950153</p>
+  </div>
+</aside>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('sidebar-overlay');
+
+  function openSidebar() {
+    sidebar?.classList.remove('-translate-x-full');
+    sidebar?.classList.add('translate-x-0');
+    overlay?.classList.remove('hidden');
+  }
+
+  function closeSidebar() {
+    sidebar?.classList.add('-translate-x-full');
+    sidebar?.classList.remove('translate-x-0');
+    overlay?.classList.add('hidden');
+  }
+
+  btn?.addEventListener('click', openSidebar);
+  overlay?.addEventListener('click', closeSidebar);
+
+  // Close sidebar when clicking a link on mobile
+  sidebar?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', closeSidebar);
+  });
+</script>

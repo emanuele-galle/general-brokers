@@ -1,0 +1,238 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/layout/Header.astro';
+import Footer from '@/components/layout/Footer.astro';
+import HeroSection from '@/components/sections/HeroSection.astro';
+import CTASection from '@/components/sections/CTASection.astro';
+import CookieConsent from '@/components/islands/CookieConsent.tsx';
+import { Icon } from 'astro-icon/components';
+import { servicesData } from '@/data/services';
+import { contactInfo } from '@/data/contact';
+import { foundingYear, yearsOfExperience } from '@/data/company';
+---
+
+<BaseLayout
+  title="General Brokers Srl - Broker Assicurativo Milano dal 1977"
+  description="General Brokers è un broker assicurativo indipendente a Milano. Specializzati in gestione polizze, sinistri e consulenza personalizzata. Esperienza dal 1977."
+>
+  <div class="flex min-h-screen">
+    <Header />
+    <div class="flex flex-col flex-1 lg:ml-72">
+      <main class="flex-grow">
+        <!-- Hero -->
+        <HeroSection />
+
+        <!-- Quote Section -->
+        <section class="section-padding bg-white">
+          <div class="container-custom max-w-4xl text-center">
+            <div class="quote-block text-left mx-auto max-w-2xl text-lg md:text-xl leading-relaxed">
+              "Da oltre {yearsOfExperience} anni al fianco di privati e aziende, con competenza
+              e indipendenza, per offrire sempre la miglior soluzione assicurativa."
+            </div>
+            <p class="mt-6 text-secondary-500 text-sm">
+              — General Brokers Srl, dal {foundingYear}
+            </p>
+          </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="section-padding bg-secondary-50">
+          <div class="container-custom">
+            <div class="text-center mb-16">
+              <p class="text-primary-600 font-semibold text-sm uppercase tracking-wider mb-3">I Nostri Servizi</p>
+              <h2 class="section-title">Come Possiamo Aiutarti</h2>
+              <p class="section-subtitle mt-4">
+                Offriamo una gamma completa di servizi assicurativi, con la garanzia di un broker indipendente che lavora esclusivamente per i tuoi interessi.
+              </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {servicesData.map((service) => (
+                <div class="card group cursor-pointer" data-service-id={service.id}>
+                  <div class="w-12 h-12 bg-primary-50 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary-100 transition-colors">
+                    <Icon name={service.icon} class="w-6 h-6 text-primary-600" />
+                  </div>
+                  <h3 class="text-lg font-bold text-secondary-900 mb-2 font-heading">{service.title}</h3>
+                  <p class="text-secondary-600 text-sm leading-relaxed mb-4">{service.shortDescription}</p>
+                  <button
+                    class="text-primary-600 text-sm font-semibold inline-flex items-center gap-1 hover:gap-2 transition-all service-modal-trigger"
+                    data-service-id={service.id}
+                  >
+                    Scopri di più
+                    <Icon name="lucide:arrow-right" class="w-4 h-4" />
+                  </button>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="relative text-white overflow-hidden">
+          <div class="absolute inset-0">
+            <img src="/images/hero/Galleria-Vittorio-Emanuele.webp" alt="" class="w-full h-full object-cover" />
+          </div>
+          <div class="absolute inset-0 bg-black/70"></div>
+          <div class="container-custom relative z-10 py-20 md:py-28">
+            <div class="text-center mb-16">
+              <h2 class="font-heading text-3xl md:text-4xl font-bold text-white mb-4">I Numeri della Nostra Esperienza</h2>
+              <div class="divider-red mx-auto"></div>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+              <div class="text-center">
+                <p class="text-4xl md:text-5xl font-bold text-white mb-2">{yearsOfExperience}+</p>
+                <p class="text-white/70 text-sm">Anni di Esperienza</p>
+              </div>
+              <div class="text-center">
+                <p class="text-4xl md:text-5xl font-bold text-white mb-2">50+</p>
+                <p class="text-white/70 text-sm">Compagnie Partner</p>
+              </div>
+              <div class="text-center">
+                <p class="text-4xl md:text-5xl font-bold text-white mb-2">2000+</p>
+                <p class="text-white/70 text-sm">Clienti Soddisfatti</p>
+              </div>
+              <div class="text-center">
+                <p class="text-4xl md:text-5xl font-bold text-white mb-2">98%</p>
+                <p class="text-white/70 text-sm">Tasso di Rinnovo</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Office Section -->
+        <section class="section-padding bg-white">
+          <div class="container-custom">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <p class="text-primary-600 font-semibold text-sm uppercase tracking-wider mb-3">Il Nostro Ufficio</p>
+                <h2 class="section-title">Vieni a Trovarci a Milano</h2>
+                <p class="text-secondary-600 leading-relaxed mt-4 mb-6">
+                  Il nostro ufficio si trova in Via Tonale 20, nel cuore di Milano, facilmente raggiungibile con i mezzi pubblici. Ti accogliamo in un ambiente professionale e riservato per discutere delle tue esigenze assicurative.
+                </p>
+                <div class="space-y-4">
+                  <div class="flex items-center gap-3">
+                    <Icon name="lucide:map-pin" class="w-5 h-5 text-primary-600 shrink-0" />
+                    <span class="text-secondary-700">{contactInfo.address.full}</span>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <Icon name="lucide:phone" class="w-5 h-5 text-primary-600 shrink-0" />
+                    <a href={`tel:${contactInfo.phone.tel}`} class="text-secondary-700 hover:text-primary-600 transition-colors">{contactInfo.phone.display}</a>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <Icon name="lucide:clock" class="w-5 h-5 text-primary-600 shrink-0" />
+                    <span class="text-secondary-700">{contactInfo.hours.weekdays}</span>
+                  </div>
+                </div>
+                <a href="/contatti" class="btn-primary inline-flex items-center gap-2 mt-8">
+                  Contattaci
+                  <Icon name="lucide:arrow-right" class="w-4 h-4" />
+                </a>
+              </div>
+              <div class="grid grid-cols-2 gap-4">
+                <img src="/images/office/office-1.jpg" alt="Ufficio General Brokers" class="rounded-xl shadow-md w-full h-48 object-cover" />
+                <img src="/images/office/office-2.jpg" alt="Ufficio General Brokers" class="rounded-xl shadow-md w-full h-48 object-cover mt-8" />
+                <img src="/images/office/office-3.jpg" alt="Sala riunioni General Brokers" class="rounded-xl shadow-md w-full h-48 object-cover" />
+                <img src="/images/about/protection.jpg" alt="Consulenza assicurativa" class="rounded-xl shadow-md w-full h-48 object-cover mt-8" />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Certifications -->
+        <section class="section-padding bg-secondary-50">
+          <div class="container-custom">
+            <div class="text-center mb-12">
+              <p class="text-primary-600 font-semibold text-sm uppercase tracking-wider mb-3">Garanzie e Certificazioni</p>
+              <h2 class="section-title">Affidabilità Certificata</h2>
+              <p class="section-subtitle mt-4">
+                Regolarmente iscritti al RUI e soggetti alla vigilanza IVASS, a garanzia della massima trasparenza e professionalità.
+              </p>
+            </div>
+            <div class="flex flex-wrap items-center justify-center gap-12">
+              <a href="https://www.ivass.it/" target="_blank" rel="noopener noreferrer" class="group">
+                <div class="w-32 h-16 opacity-60 group-hover:opacity-100 transition-all duration-300">
+                  <img src="/images/logo/ivass-logo.jpg" alt="IVASS" class="w-full h-full object-contain" width="128" height="64" loading="lazy" />
+                </div>
+              </a>
+              <a href="https://aiba.it/" target="_blank" rel="noopener noreferrer" class="group">
+                <div class="w-32 h-16 opacity-60 group-hover:opacity-100 transition-all duration-300">
+                  <img src="/images/logo/aiba-logo.png" alt="AIBA" class="w-full h-full object-contain" width="128" height="64" loading="lazy" />
+                </div>
+              </a>
+              <a href="https://www.consap.it/" target="_blank" rel="noopener noreferrer" class="group">
+                <div class="w-24 h-14 opacity-50 group-hover:opacity-100 transition-all duration-300">
+                  <img src="/images/logo/consap_logo.jpg" alt="CONSAP" class="w-full h-full object-contain" width="96" height="56" loading="lazy" />
+                </div>
+              </a>
+              <a href="https://www.ania.it/" target="_blank" rel="noopener noreferrer" class="group">
+                <div class="w-24 h-14 opacity-50 group-hover:opacity-100 transition-all duration-300">
+                  <img src="/images/logo/logo_ania.png" alt="ANIA" class="w-full h-full object-contain" width="96" height="56" loading="lazy" />
+                </div>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- CTA Final -->
+        <CTASection variant="consultation" />
+      </main>
+      <Footer />
+      <CookieConsent client:idle />
+    </div>
+  </div>
+</BaseLayout>
+
+<!-- Service Modal Logic -->
+<div id="service-modal-root"></div>
+
+<script>
+  import { createElement } from 'react';
+  import { createRoot } from 'react-dom/client';
+  import ServiceModal from '@/components/islands/ServiceModal';
+  import { servicesData } from '@/data/services';
+
+  let root: ReturnType<typeof createRoot> | null = null;
+  const container = document.getElementById('service-modal-root');
+
+  function renderModal(serviceId: string | null) {
+    if (!container) return;
+    if (!root) root = createRoot(container);
+
+    if (!serviceId) {
+      root.render(null);
+      return;
+    }
+
+    const service = servicesData.find((s) => s.id === serviceId);
+    if (!service) return;
+
+    const iconEl = createElement('span', { className: 'w-5 h-5 flex items-center justify-center text-current' }, '●');
+
+    root.render(
+      createElement(ServiceModal, {
+        isOpen: true,
+        onClose: () => renderModal(null),
+        title: service.title,
+        icon: iconEl,
+        description: service.description,
+        benefits: service.benefits,
+        details: service.details,
+        coverage: service.coverage,
+      }),
+    );
+  }
+
+  document.querySelectorAll('.service-modal-trigger').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const id = btn.getAttribute('data-service-id');
+      if (id) renderModal(id);
+    });
+  });
+
+  document.querySelectorAll('.card[data-service-id]').forEach((card) => {
+    card.addEventListener('click', (e) => {
+      if ((e.target as HTMLElement).closest('.service-modal-trigger')) return;
+      const id = card.getAttribute('data-service-id');
+      if (id) renderModal(id);
+    });
+  });
+</script>
