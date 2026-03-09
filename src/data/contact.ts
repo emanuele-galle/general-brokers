@@ -4,17 +4,13 @@ export const contactInfo = {
     tel: '026698.4847',
     international: '+39 02 6698.4847',
   },
-  fax: {
-    display: '02 6707.2163',
-    tel: '026707.2163',
-  },
   email: {
     general: 'info@generalbrokers.it',
     claims: 'sinistri@generalbrokers.it',
     pec: 'info@pec.generalbrokers.it',
   },
   iban: 'IT97 Q 05034 01689 000000001802',
-  ccPostale: '12647202',
+  sdi: 'JIHBC8X',
   address: {
     street: 'Via Tonale, 20',
     city: 'Milano',
@@ -27,9 +23,7 @@ export const contactInfo = {
     facebook: 'https://www.facebook.com/generalbrokers',
   },
   hours: {
-    weekdays: 'Lunedì - Venerdì: 9:00 - 18:00',
-    saturday: 'Sabato: Su appuntamento',
-    sunday: 'Domenica: Chiuso',
+    weekdays: 'Lunedì - Venerdì: 9:30 - 18:30',
   },
 } as const;
 

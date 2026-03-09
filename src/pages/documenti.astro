@@ -11,53 +11,43 @@ const documents = [
   {
     category: 'Sinistri Auto',
     items: [
-      { name: 'CID - Constatazione Amichevole', file: 'Modulo Blu.pdf', description: 'Modulo per la constatazione amichevole di sinistro stradale (Modulo Blu).' },
+      { name: 'CID - Constatazione Amichevole', file: 'Modulo Blu.pdf', description: 'Modulo di constatazione amichevole di incidente stradale (Modulo CAI).' },
       { name: 'Richiesta di Risarcimento', file: 'Richiesta di risarcimento.pdf', description: 'Modulo per la richiesta di risarcimento danni.' },
     ],
   },
   {
     category: 'Mandati',
     items: [
-      { name: 'Mandato - Privato', file: 'Mandato - privato.pdf', description: 'Modulo di conferimento mandato per persona fisica.' },
-      { name: 'Mandato - Società', file: 'Mandato - societa.pdf', description: 'Modulo di conferimento mandato per persona giuridica.' },
-      { name: 'Risposta al Mandato - Privato', file: 'Risposta al mandato - privato.pdf', description: 'Modulo di risposta al mandato per persona fisica.' },
-      { name: 'Risposta al Mandato - Società', file: 'Risposta al mandato - societa.pdf', description: 'Modulo di risposta al mandato per persona giuridica.' },
-    ],
-  },
-  {
-    category: 'Informative',
-    items: [
-      { name: 'Allegato 3 - Informativa sul Distributore', file: 'Allegato 3.pdf', description: 'Informativa obbligatoria sull\'intermediario assicurativo.' },
-      { name: 'Allegato 4 - Informativa Precontrattuale', file: 'Allegato 4.pdf', description: 'Informativa precontrattuale ai sensi della normativa vigente.' },
-      { name: 'Allegato 4 bis', file: 'Allegato 4 bis.pdf', description: 'Integrazione all\'informativa precontrattuale.' },
-      { name: 'Allegato 4 Ter', file: 'Allegato 4 ter.pdf', description: 'Ulteriore integrazione all\'informativa precontrattuale.' },
-      { name: 'Allegati - Ricevuta di Consegna', file: 'Allegati - ricevuta di consegna.pdf', description: 'Ricevuta di consegna della documentazione.' },
-    ],
-  },
-  {
-    category: 'Altri Documenti',
-    items: [
-      { name: 'Elenco delle Imprese', file: 'Elenco delle Imprese.pdf', description: 'Elenco delle compagnie assicurative con cui collaboriamo.' },
+      { name: 'Mandato - Privato', file: 'Mandato - privato.pdf', description: 'Documento di conferimento mandato per persona fisica.' },
+      { name: 'Mandato - Società', file: 'Mandato - societa.pdf', description: 'Documento di conferimento mandato per persona giuridica.' },
+      { name: 'Risposta al Mandato - Privato', file: 'Risposta al mandato - privato.pdf', description: 'Documento di risposta al mandato per persona fisica.' },
+      { name: 'Risposta al Mandato - Società', file: 'Risposta al mandato - societa.pdf', description: 'Documento di risposta al mandato per persona giuridica.' },
     ],
   },
 ];
 ---
 
 <BaseLayout
-  title="Modulistica - General Brokers Srl | Scarica i Moduli"
-  description="Scarica i moduli e documenti necessari: CID, denunce sinistro, mandati, informative precontrattuali e allegati IVASS."
+  title="Documenti - General Brokers Srl | Scarica i Moduli"
+  description="Scarica i moduli e documenti necessari: CID, denunce sinistro, mandati e documentazione assicurativa."
 >
   <div class="flex min-h-screen">
     <Header />
     <div class="flex flex-col flex-1 lg:ml-72">
       <main class="flex-grow">
         <GenericHero
-          title="Modulistica"
+          title="Documenti"
           subtitle="DOCUMENTI"
           description="Scarica i moduli necessari per le tue pratiche assicurative. Tutti i documenti sono in formato PDF."
         />
 
-        <section class="section-padding bg-white">
+        <!-- Immagine sfumata -->
+        <section class="relative h-48 md:h-56 overflow-hidden">
+          <img src="/images/office/office-2.webp" alt="" class="w-full h-full object-cover" loading="lazy" />
+          <div class="absolute inset-0 bg-gradient-to-b from-white via-white/40 to-white"></div>
+        </section>
+
+        <section class="section-padding bg-white -mt-8 relative z-10">
           <div class="container-custom max-w-4xl">
             {documents.map((category) => (
               <div class="mb-12 last:mb-0">
