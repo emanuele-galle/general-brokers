@@ -37,12 +37,12 @@ function isActive(href: string): boolean {
 <!-- Sidebar -->
 <aside
   id="sidebar"
-  class="fixed top-0 left-0 h-screen bg-primary-600 text-white shadow-2xl z-50 overflow-y-auto transition-transform duration-300 ease-in-out -translate-x-full lg:translate-x-0 w-64 lg:w-72"
+  class="fixed top-0 left-0 h-screen bg-white border-r-[3px] border-primary-600 shadow-2xl z-50 overflow-y-auto transition-transform duration-300 ease-in-out -translate-x-full lg:translate-x-0 w-64 lg:w-72 flex flex-col"
 >
   <!-- Logo -->
   <div class="px-4 pt-5 pb-3">
     <a href="/" class="block">
-      <div class="bg-white rounded-lg p-4 flex items-center justify-center">
+      <div class="bg-primary-600 rounded-lg p-4 flex items-center justify-center">
         <img
           src="/images/logo/general-brokers-logo.jpg"
           alt="General Brokers Logo"
@@ -52,16 +52,13 @@ function isActive(href: string): boolean {
         />
       </div>
     </a>
-    <p class="text-center text-white text-[0.65rem] font-bold uppercase tracking-[0.15em] mt-2" style="font-family: 'Times New Roman', Times, serif;">
+    <p class="text-center text-primary-700 text-[0.65rem] font-bold uppercase tracking-[0.15em] mt-2" style="font-family: 'Times New Roman', Times, serif;">
       Gestioni Assicurative
-    </p>
-    <p class="text-center text-white text-sm italic font-serif mt-1">
-      l&apos;assicurezza firmata
     </p>
   </div>
 
   <!-- Menu -->
-  <nav class="py-4">
+  <nav class="py-4 flex-1">
     <ul class="space-y-1 px-3">
       {menuItems.map((item) => {
         const active = isActive(item.href);
@@ -72,15 +69,15 @@ function isActive(href: string): boolean {
               class:list={[
                 'flex items-center gap-3 px-4 py-3.5 rounded-lg transition-all duration-200 group text-[15px]',
                 active
-                  ? 'bg-white text-primary-600 font-bold shadow-md'
-                  : 'text-white hover:bg-white/15',
+                  ? 'bg-primary-600 text-white font-bold shadow-md'
+                  : 'text-primary-700 hover:bg-primary-50',
               ]}
             >
               <Icon
                 name={item.icon}
                 class:list={[
                   'flex-shrink-0 w-[18px] h-[18px]',
-                  active ? 'text-primary-600' : 'text-white group-hover:text-white',
+                  active ? 'text-white' : 'text-primary-600 group-hover:text-primary-700',
                 ]}
               />
               <span>{item.title}</span>
@@ -92,13 +89,13 @@ function isActive(href: string): boolean {
   </nav>
 
   <!-- Social -->
-  <div class="px-6 py-4 border-t border-white/30 mt-auto">
+  <div class="px-6 py-4 border-t border-primary-200 mt-auto">
     <div class="flex justify-center gap-4">
       <a
         href="https://www.linkedin.com/company/general-brokers"
         target="_blank"
         rel="noopener noreferrer"
-        class="p-2 text-white/80 hover:text-white transition-colors"
+        class="p-2 text-primary-400 hover:text-primary-600 transition-colors"
         aria-label="LinkedIn"
       >
         <Icon name="lucide:linkedin" class="w-5 h-5" />
@@ -107,7 +104,7 @@ function isActive(href: string): boolean {
         href="https://www.facebook.com/generalbrokers"
         target="_blank"
         rel="noopener noreferrer"
-        class="p-2 text-white/80 hover:text-white transition-colors"
+        class="p-2 text-primary-400 hover:text-primary-600 transition-colors"
         aria-label="Facebook"
       >
         <Icon name="lucide:facebook" class="w-5 h-5" />
@@ -116,7 +113,7 @@ function isActive(href: string): boolean {
   </div>
 
   <!-- Footer Info -->
-  <div class="px-6 py-4 border-t border-white/30 text-xs text-white/70 text-center">
+  <div class="px-6 py-4 border-t border-primary-200 text-xs text-primary-400 text-center">
     <p class="mb-1">RUI: B000072481</p>
     <p>P.IVA: 03740950153</p>
   </div>
