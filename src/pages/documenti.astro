@@ -39,15 +39,10 @@ const documents = [
           title="Documenti"
           subtitle="DOCUMENTI"
           description="Scarica i moduli necessari per le tue pratiche assicurative. Tutti i documenti sono in formato PDF."
+          backgroundImage="/images/hero/documenti.jpg"
         />
 
-        <!-- Immagine sfumata -->
-        <section class="relative h-48 md:h-56 overflow-hidden">
-          <img src="/images/office/office-2.webp" alt="" class="w-full h-full object-cover" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-b from-white via-white/40 to-white"></div>
-        </section>
-
-        <section class="section-padding bg-white -mt-8 relative z-10">
+        <section class="section-padding bg-white">
           <div class="container-custom max-w-4xl">
             {documents.map((category) => (
               <div class="mb-12 last:mb-0">
