@@ -39,7 +39,7 @@
   }
 
   body {
-    @apply text-secondary-700 bg-white;
+    @apply text-secondary-700 bg-white overflow-x-hidden;
   }
 
   h1, h2, h3, h4 {
@@ -69,7 +69,7 @@
   }
 
   .section-padding {
-    @apply py-20 md:py-28;
+    @apply py-12 sm:py-16 md:py-20 lg:py-28;
   }
 
   .card {
@@ -81,7 +81,7 @@
   }
 
   .section-title {
-    @apply font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-secondary-900 mb-4 tracking-tight;
+    @apply font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-secondary-900 mb-4 tracking-tight;
   }
 
   .section-subtitle {
